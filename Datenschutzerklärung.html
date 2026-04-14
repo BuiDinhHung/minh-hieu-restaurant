@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung - Minh Hiếu Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET & CƠ BẢN === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
+
+        /* === NAVBAR (TÁI SỬ DỤNG) === */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            padding: 15px 80px;
+            position: relative; 
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            min-height: 100px;
+        }
+
+        .logo {
+            position: absolute;
+            left: 30%; 
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 11;
+        }
+        
+        .logo img { height: auto; max-height: 120px; max-width: 300px; object-fit: contain; display: block; }
+
+        .nav-links { list-style: none; display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: #555; font-size: 14px; font-weight: 600; text-transform: capitalize; letter-spacing: 0.5px; transition: color 0.3s; }
+        .nav-links a:hover { color: #ff5252; }
+
+        /* === DATENSCHUTZ CONTENT (PHẦN NỘI DUNG PHÁP LÝ) === */
+        .legal-section {
+            padding: 100px 20px 80px 20px;
+            background-color: #ffffff;
+            min-height: 60vh;
+        }
+
+        .legal-container {
+            max-width: 900px; /* Giới hạn độ rộng để chữ dễ đọc */
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .legal-container h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .legal-container h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .legal-container h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .legal-container p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .legal-container ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .legal-container li {
+            margin-bottom: 5px;
+        }
+
+        /* === FOOTER (TÁI SỬ DỤNG) === */
+        .footer { position: relative; background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat; color: #ffffff; padding: 60px 20px; }
+        .footer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(220, 53, 69, 0.85); z-index: 1; }
+        .footer-container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        .footer-line { width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.3); margin-bottom: 40px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+        .footer-left h3 { font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 15px; }
+        .footer-left p { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.9; }
+        .footer-links-small { margin-top: 30px; font-size: 0.75rem; letter-spacing: 1px; }
+        .footer-links-small a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+        .footer-links-small a:hover { opacity: 1; text-decoration: underline; }
+        .footer-nav { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 40px; }
+        .footer-nav a { color: #ffffff; text-decoration: none; font-size: 0.9rem; opacity: 0.9; transition: opacity 0.3s; }
+        .footer-nav a:hover { opacity: 1; text-decoration: underline; }
+
+        /* === TỐI ƯU RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .navbar { padding: 15px 40px; }
+            .logo { left: 20%; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: row; justify-content: space-between; padding: 10px 15px; min-height: auto; }
+            .logo { position: relative; left: auto; transform: none; flex-shrink: 0; }
+            .logo img { max-height: 45px; }
+            .nav-links { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 12px; padding: 0; overflow-x: auto; align-items: center; }
+            .nav-links a { font-size: 11px; white-space: nowrap; }
+            
+            .legal-container h1 { font-size: 2rem; }
+            .legal-container h2 { font-size: 1.3rem; }
+            
+            .footer-content { flex-direction: column; gap: 30px; }
+            .footer-nav { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html#home" class="logo">
+            <img src="logo.png" alt="Minh Hiếu Restaurant Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="index.html#galerie">Galerie</a></li>
+            <li><a href="menu.html">Speisekarte</a></li>
+        </ul>
+    </nav>
+
+    <section class="legal-section">
+        <div class="legal-container">
+            <h1>Datenschutzerklärung</h1>
+
+            <h2>1. Datenschutz auf einen Blick</h2>
+            <h3>Allgemeine Hinweise</h3>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
+            
+            <h3>Datenerfassung auf dieser Website</h3>
+            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+
+            <p><strong>Wie erfassen wir Ihre Daten?</strong><br>
+            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie uns per E-Mail senden.<br>
+            Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+
+            <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
+            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+
+            <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
+            Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+
+            <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
+            <h3>Datenschutz</h3>
+            <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+
+            <h3>Hinweis zur verantwortlichen Stelle</h3>
+            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+            <p>
+                Minh Hiếu Restaurant<br>
+                [Tên người quản lý]<br>
+                Kurfürstenstraße 23<br>
+                56218 Mülheim-Kärlich<br>
+                Telefon: 02630 9669791<br>
+                E-Mail: info@minhhieu-restaurant.de
+            </p>
+            <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+
+            <h2>3. Datenerfassung auf dieser Website</h2>
+            <h3>Server-Log-Dateien</h3>
+            <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+            <ul>
+                <li>Browsertyp und Browserversion</li>
+                <li>verwendetes Betriebssystem</li>
+                <li>Referrer URL</li>
+                <li>Hostname des zugreifenden Rechners</li>
+                <li>Uhrzeit der Serveranfrage</li>
+                <li>IP-Adresse</li>
+            </ul>
+            <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+
+            <h3>Anfragen per E-Mail oder Telefon</h3>
+            <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+
+            <h2>4. Plugins und Tools</h2>
+            <h3>Google Web Fonts</h3>
+            <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.</p>
+            <p>Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen. Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die Nutzung von Google Web Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der einheitlichen Darstellung des Schriftbildes auf seiner Website.</p>
+
+            <h3>Google Maps</h3>
+            <p>Diese Seite nutzt über eine API den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited ("Google"), Gordon House, Barrow Street, Dublin 4, Irland.</p>
+            <p>Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>MINH HIẾU</h3>
+                    <p>KURFÜRSTENSTRASSE 23, 56218 MÜLHEIM-KÄRLICH</p>
+                    <p>02630 9669791</p>
+                    <p>INFO@MINHHIEU-RESTAURANT.DE</p>
+                    <div class="footer-links-small">
+                        <a href="impressum.html">IMPRESSUM</a> / <a href="datenschutz.html">DATENSCHUTZERKLÄRUNG</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <ul class="footer-nav">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#kontakt">Kontakt</a></li>
+                        <li><a href="index.html#galerie">Galerie</a></li>
+                        <li><a href="menu.html">Speisekarte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

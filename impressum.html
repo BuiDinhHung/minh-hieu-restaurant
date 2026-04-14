@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum - Minh Hiếu Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET & CƠ BẢN === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
+
+        /* === NAVBAR (TÁI SỬ DỤNG) === */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            padding: 15px 80px;
+            position: relative; 
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            min-height: 100px;
+        }
+
+        .logo {
+            position: absolute;
+            left: 30%; 
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 11;
+        }
+        
+        .logo img { height: auto; max-height: 120px; max-width: 300px; object-fit: contain; display: block; }
+
+        .nav-links { list-style: none; display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: #555; font-size: 14px; font-weight: 600; text-transform: capitalize; letter-spacing: 0.5px; transition: color 0.3s; }
+        .nav-links a:hover { color: #ff5252; }
+
+        /* === IMPRESSUM CONTENT (PHẦN MỚI) === */
+        .impressum-section {
+            padding: 100px 20px 80px 20px;
+            background-color: #ffffff;
+            min-height: 60vh;
+        }
+
+        .impressum-container {
+            max-width: 900px; /* Giới hạn độ rộng để chữ dễ đọc */
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .impressum-container h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .impressum-info {
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            color: #444;
+        }
+
+        .impressum-info p {
+            margin-bottom: 10px;
+        }
+
+        .impressum-disclaimer {
+            font-size: 0.9rem;
+            text-align: justify;
+        }
+
+        .impressum-disclaimer h3 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .impressum-disclaimer p {
+            margin-bottom: 15px;
+        }
+
+        /* === FOOTER (TÁI SỬ DỤNG) === */
+        .footer { position: relative; background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat; color: #ffffff; padding: 60px 20px; }
+        .footer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(220, 53, 69, 0.85); z-index: 1; }
+        .footer-container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        .footer-line { width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.3); margin-bottom: 40px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+        .footer-left h3 { font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 15px; }
+        .footer-left p { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.9; }
+        .footer-links-small { margin-top: 30px; font-size: 0.75rem; letter-spacing: 1px; }
+        .footer-links-small a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+        .footer-links-small a:hover { opacity: 1; text-decoration: underline; }
+        .footer-nav { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 40px; }
+        .footer-nav a { color: #ffffff; text-decoration: none; font-size: 0.9rem; opacity: 0.9; transition: opacity 0.3s; }
+        .footer-nav a:hover { opacity: 1; text-decoration: underline; }
+
+        /* === TỐI ƯU RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .navbar { padding: 15px 40px; }
+            .logo { left: 20%; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: row; justify-content: space-between; padding: 10px 15px; min-height: auto; }
+            .logo { position: relative; left: auto; transform: none; flex-shrink: 0; }
+            .logo img { max-height: 45px; }
+            .nav-links { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 12px; padding: 0; overflow-x: auto; align-items: center; }
+            .nav-links a { font-size: 11px; white-space: nowrap; }
+            
+            .impressum-container h1 { font-size: 2rem; }
+            .impressum-info { font-size: 1rem; }
+            
+            .footer-content { flex-direction: column; gap: 30px; }
+            .footer-nav { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html#home" class="logo">
+            <img src="logo.png" alt="Minh Hiếu Restaurant Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="index.html#galerie">Galerie</a></li>
+            <li><a href="menu.html">Speisekarte</a></li>
+        </ul>
+    </nav>
+
+    <section class="impressum-section">
+        <div class="impressum-container">
+            <h1>Minh Hiếu Restaurant</h1>
+            
+            <div class="impressum-info">
+                <p>Kurfürstenstraße 23</p>
+                <p>56218 Mülheim-Kärlich</p>
+                <br>
+                <p><strong>Geschäftsführer:</strong> [Tên người quản lý]</p>
+                <p><strong>Steuernummer:</strong> [Mã số thuế của bạn]</p>
+                <br>
+                <p>info@minhhieu-restaurant.de</p>
+                <p>02630 9669791</p>
+            </div>
+
+            <div class="impressum-disclaimer">
+                <p><strong>Haftungsausschluss</strong></p>
+
+                <h3>1. Inhalt des Onlineangebotes</h3>
+                <p>Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüche gegen den Autor, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens des Autors kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.</p>
+                <p>Alle Angebote sind freibleibend und unverbindlich. Der Autor behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.</p>
+
+                <h3>2. Verweise und Links</h3>
+                <p>Bei direkten oder indirekten Verweisen auf fremde Webseiten ("Hyperlinks"), die außerhalb des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.</p>
+                <p>Der Autor erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat der Autor keinerlei Einfluss. Deshalb distanziert er sich hiermit ausdrücklich von allen Inhalten aller verlinkten /verknüpften Seiten, die nach der Linksetzung verändert wurden. Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in vom Autor eingerichteten Gästebüchern, Diskussionsforen, Linkverzeichnissen, Mailinglisten und in allen anderen Formen von Datenbanken, auf deren Inhalt externe Schreibzugriffe möglich sind. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde, nicht derjenige, der über Links auf die jeweilige Veröffentlichung lediglich verweist.</p>
+
+                <h3>3. Urheber- und Kennzeichenrecht</h3>
+                <p>Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.</p>
+                <p>Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind!</p>
+                <p>Das Copyright für veröffentlichte, vom Autor selbst erstellte Objekte bleibt allein beim Autor der Seiten. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung des Autors nicht gestattet.</p>
+
+                <h3>4. Datenschutz</h3>
+                <p>Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (Emailadressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis. Die Inanspruchnahme und Bezahlung aller angebotenen Dienste ist – soweit technisch möglich und zumutbar – auch ohne Angabe solcher Daten bzw. unter Angabe anonymisierter Daten oder eines Pseudonyms gestattet. Die Nutzung der im Rahmen des Impressums oder vergleichbarer Angaben veröffentlichten Kontaktdaten wie Postanschriften, Telefon- und Faxnummern sowie Emailadressen durch Dritte zur Übersendung von nicht ausdrücklich angeforderten Informationen ist nicht gestattet. Rechtliche Schritte gegen die Versender von sogenannten Spam-Mails bei Verstößen gegen dieses Verbot sind ausdrücklich vorbehalten.</p>
+
+                <h3>5. Rechtswirksamkeit dieses Haftungsausschlusses</h3>
+                <p>Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>MINH HIẾU</h3>
+                    <p>KURFÜRSTENSTRASSE 23, 56218 MÜLHEIM-KÄRLICH</p>
+                    <p>02630 9669791</p>
+                    <p>INFO@MINHHIEU-RESTAURANT.DE</p>
+                    <div class="footer-links-small">
+                        <a href="impressum.html">IMPRESSUM</a> / <a href="#">DATENSCHUTZERKLÄRUNG</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <ul class="footer-nav">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#kontakt">Kontakt</a></li>
+                        <li><a href="index.html#galerie">Galerie</a></li>
+                        <li><a href="menu.html">Speisekarte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

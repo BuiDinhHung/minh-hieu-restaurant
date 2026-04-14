@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Hiếu Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET & CƠ BẢN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Hiệu ứng cuộn trang mượt mà */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
+        .navbar {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            padding: 15px 80px;
+            position: relative; 
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            min-height: 100px;
+        }
+
+        /* === LOGO IMAGE === */
+        .logo {
+            position: absolute;
+            left: 30%; /* Vị trí logo PC */
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 11;
+        }
+        
+        .logo img {
+            height: auto;
+            max-height: 120px; 
+            max-width: 300px; 
+            object-fit: contain; 
+            display: block;
+        }
+
+        /* === DANH SÁCH MENU === */
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: #ff5252; }
+
+        /* === HERO SECTION (ẢNH BÌA) === */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            min-height: 550px;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                        url('https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 45px;
+            left: 0;
+            z-index: 5;
+        }
+        .top-wave { top: -1px; }
+        .bottom-wave { bottom: -1px; }
+        .wave svg { width: 100%; height: 100%; display: block; }
+
+        .hero-content {
+            text-align: center;
+            color: #ffffff;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .top-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px auto;
+            width: 60%;
+        }
+
+        .line { flex: 1; height: 1px; background-color: rgba(255, 255, 255, 0.8); }
+
+        .circle-icon {
+            width: 38px;
+            height: 38px;
+            background-color: #ff5252;
+            border-radius: 50%;
+            margin: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(255, 82, 82, 0.5);
+        }
+
+        .hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 7.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .bottom-line { width: 250px; height: 1px; background-color: rgba(255, 255, 255, 0.8); margin: 0 auto; }
+
+        /* === INFO SECTION BÊN DƯỚI ẢNH BÌA === */
+        .info-section { padding: 60px 20px; background-color: #ffffff; }
+        .info-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; }
+        .info-box { flex: 1; min-width: 280px; text-align: center; padding: 20px; }
+        .info-box h3 { font-size: 1.1rem; color: #333; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+        .info-box p { font-size: 0.95rem; color: #666; line-height: 1.8; }
+
+        /* === WELCOME SECTION & GALLERY === */
+        .welcome-section { padding: 80px 20px 100px 20px; background-color: #ffffff; }
+        .welcome-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        
+        .welcome-text { flex: 1; text-align: center; }
+        .title-wrapper { display: inline-block; position: relative; margin-bottom: 20px; }
+        .title-wrapper::before { content: ''; position: absolute; left: -25px; top: 10px; bottom: 10px; width: 2px; background-color: #ff5252; }
+        .welcome-title { font-family: 'Great Vibes', cursive; font-size: 5rem; color: #ff5252; line-height: 1.1; font-weight: 400; }
+        .welcome-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 8px; text-transform: uppercase; color: #333; margin-bottom: 30px; }
+        .welcome-desc { font-size: 0.9rem; color: #666; line-height: 1.8; margin-bottom: 20px; padding: 0 10px; }
+
+        .btn-call { display: inline-block; background-color: #ff5252; color: #ffffff; padding: 12px 40px; border-radius: 30px; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 15px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4); }
+        .btn-call:hover { background-color: #e63946; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 82, 82, 0.6); }
+
+        .welcome-gallery { flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px; gap: 15px; }
+        .gallery-item { overflow: hidden; border-radius: 3px; cursor: pointer; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .item-large { grid-column: 1 / 2; grid-row: 1 / 3; }
+
+        /* === GALLERY & VIDEO SECTION === */
+        .gallery-video-section { position: relative; width: 100%; padding: 100px 20px 120px 20px; background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat fixed; text-align: center; color: #ffffff; }
+        .gv-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+        .section-title { font-family: 'Great Vibes', cursive; font-size: 5.5rem; font-weight: 400; margin-bottom: 5px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+        .section-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; margin-bottom: 40px; color: #ddd; }
+        
+        .gv-gallery { display: flex; justify-content: center; gap: 15px; margin-bottom: 15px; }
+        .gv-gallery img { width: 30%; height: 200px; object-fit: cover; border-radius: 12px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s, filter 0.3s; border: 2px solid transparent; }
+        .gv-gallery img:hover { transform: translateY(-5px); border-color: #ff5252; filter: brightness(1.1); }
+        
+        .gv-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; }
+        .dot { width: 8px; height: 8px; background-color: rgba(255,255,255,0.4); border-radius: 50%; display: inline-block; cursor: pointer; transition: background-color 0.3s; }
+        .dot.active, .dot:hover { background-color: #ff5252; }
+        
+        .gv-video-wrapper { max-width: 700px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.6); background-color: #000; border: 3px solid rgba(255,255,255,0.1); }
+        .gv-video-wrapper video { width: 100%; display: block; outline: none; }
+
+        /* === MENU & INFO SECTION === */
+        .menu-section { position: relative; padding: 100px 20px 120px 20px; background-color: #ffffff; }
+        .menu-container { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; gap: 60px; }
+        .menu-image-col { flex: 1; }
+        .menu-img { width: 100%; height: auto; display: block; border: 3px solid #ff5252; padding: 3px; border-radius: 2px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.3s ease; }
+        .menu-img:hover { transform: scale(1.02); }
+        .menu-text-col { flex: 1; text-align: center; }
+        .menu-title { font-family: 'Great Vibes', cursive; font-size: 5rem; color: #ff5252; font-weight: 400; margin-bottom: 5px; }
+        .menu-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; color: #333; margin-bottom: 30px; }
+        .menu-desc { font-size: 0.95rem; color: #555; font-weight: 600; line-height: 1.6; margin-bottom: 30px; }
+        .menu-hours { font-size: 0.85rem; color: #666; line-height: 1.8; margin-bottom: 40px; }
+        .menu-actions { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .btn-red { display: inline-block; background-color: #ff5252; color: #ffffff; padding: 12px 35px; border-radius: 30px; text-decoration: none; font-size: 14px; font-weight: 600; width: 200px; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255, 82, 82, 0.3); }
+        .btn-red:hover { background-color: #e63946; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 82, 82, 0.5); }
+
+        /* === KONTAKT SECTION === */
+        .kontakt-section { background-color: #ffffff; padding: 80px 20px; }
+        .kontakt-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; gap: 50px; }
+        .kontakt-info { flex: 1; max-width: 500px; }
+        .kontakt-map { flex: 1; }
+        .kontakt-map iframe { border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); height: 100%; min-height: 450px; }
+        .red-script-title { font-family: 'Great Vibes', cursive; font-size: 5rem; color: #ff5252; font-weight: 400; margin-bottom: 5px; line-height: 1; }
+        .dark-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; color: #333; margin-bottom: 40px; margin-left: 5px; }
+        .mt-40 { margin-top: 40px; }
+        
+        .contact-list { display: flex; flex-direction: column; gap: 25px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; }
+        .icon-circle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ff5252; display: flex; justify-content: center; align-items: center; padding: 8px; }
+        .item-text strong { display: block; font-size: 0.95rem; color: #222; margin-bottom: 3px; }
+        .item-text p { font-size: 0.85rem; color: #777; }
+        
+        .hours-list p { font-size: 1.1rem; color: #555; margin-bottom: 12px; line-height: 1.5; }
+        .holiday-title { font-size: 1.2rem; color: #444; margin-bottom: 15px; }
+        .open-green { color: #28a745 !important; font-weight: 600; }
+
+        /* === FOOTER CHÂN TRANG === */
+        .footer { position: relative; background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat; color: #ffffff; padding: 60px 20px; }
+        .footer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(220, 53, 69, 0.85); z-index: 1; }
+        .footer-container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        .footer-line { width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.3); margin-bottom: 40px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+        .footer-left h3 { font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 15px; }
+        .footer-left p { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; opacity: 0.9; }
+        .footer-links-small { margin-top: 30px; font-size: 0.75rem; letter-spacing: 1px; }
+        .footer-links-small a { color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s; }
+        .footer-links-small a:hover { opacity: 1; text-decoration: underline; }
+        .footer-nav { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 40px; }
+        .footer-nav a { color: #ffffff; text-decoration: none; font-size: 0.9rem; opacity: 0.9; transition: opacity 0.3s; }
+        .footer-nav a:hover { opacity: 1; text-decoration: underline; }
+
+        /* === CSS CHO LIGHTBOX (PHÓNG TO ẢNH) === */
+        .lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.85); justify-content: center; align-items: center; }
+        .lightbox.active { display: flex; }
+        .lightbox-content { max-width: 90%; max-height: 90vh; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); animation: fadeInZoom 0.3s ease; }
+        @keyframes fadeInZoom { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; font-weight: 300; cursor: pointer; transition: color 0.3s; }
+        .close-lightbox:hover { color: #ff5252; }
+
+        /* =========================================
+           TỐI ƯU RESPONSIVE (MOBILE & TABLET)
+           ========================================= */
+        @media (max-width: 1024px) {
+            .navbar { padding: 15px 40px; }
+            .logo { left: 20%; }
+        }
+
+        @media (max-width: 900px) {
+            .hero-title { font-size: 5.5rem; }
+            .top-decoration { width: 80%; }
+            .welcome-container { flex-direction: column; }
+            .welcome-text { margin-bottom: 40px; }
+            .title-wrapper::before { display: none; }
+            .menu-container { flex-direction: column; gap: 40px; }
+            .menu-image-col, .menu-text-col { width: 100%; max-width: 500px; }
+            .kontakt-container { flex-direction: column; }
+            .kontakt-info { max-width: 100%; }
+            .kontakt-map iframe { min-height: 350px; }
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar Mobile */
+            .navbar { flex-direction: row; justify-content: space-between; padding: 10px 15px; min-height: auto; }
+            .logo { position: relative; left: auto; transform: none; flex-shrink: 0; }
+            .logo img { max-height: 45px; }
+            .nav-links { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 12px; padding: 0; overflow-x: auto; align-items: center; }
+            .nav-links a { font-size: 11px; white-space: nowrap; }
+            
+            .hero { height: 70vh; min-height: 400px; }
+            .top-decoration { width: 90%; margin-bottom: 15px; }
+            .circle-icon { width: 30px; height: 30px; margin: 0 10px; }
+            .circle-icon svg { width: 14px; height: 14px; }
+            .hero-title { font-size: 4rem; line-height: 1.2; margin-bottom: 10px; }
+            .hero-subtitle { font-size: 0.7rem; letter-spacing: 4px; margin-bottom: 20px; }
+            .bottom-line { width: 150px; }
+            
+            .info-container { gap: 20px; }
+            .info-box { padding: 10px; border-bottom: 1px dashed #ddd; }
+            .info-box:last-child { border-bottom: none; }
+
+            .section-title { font-size: 4rem; }
+            .gv-gallery { justify-content: flex-start; overflow-x: auto; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+            .gv-gallery img { width: 80%; flex-shrink: 0; scroll-snap-align: center; }
+            .gv-video-wrapper { width: 95%; }
+        }
+
+        @media (max-width: 600px) {
+            .welcome-title { font-size: 4rem; }
+            .welcome-gallery { grid-template-columns: 1fr; grid-template-rows: 300px 200px 200px; }
+            .item-large { grid-column: 1 / 2; grid-row: 1 / 2; }
+            
+            .menu-title { font-size: 4rem; }
+            .menu-desc { font-size: 0.85rem; }
+            .menu-hours { font-size: 0.8rem; }
+            
+            .red-script-title { font-size: 4rem; }
+            .dark-subtitle { font-size: 0.75rem; letter-spacing: 4px; }
+            .hours-list p { font-size: 1rem; }
+            
+            .footer-content { flex-direction: column; gap: 30px; }
+            .footer-nav { grid-template-columns: 1fr; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#home" class="logo">
+            <img src="logo.png" alt="Minh Hiếu Restaurant Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="menu.html">Speisekarte</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="wave top-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,0 C240,60 480,60 720,30 C960,0 1200,0 1440,30 L1440,0 L0,0 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <div class="top-decoration">
+                <span class="line"></span>
+                <div class="circle-icon">
+                    <svg fill="white" viewBox="0 0 24 24" width="18px" height="18px">
+                        <path d="M12,4.46C12,4.46 9.5,6.5 6,6.5C4.24,6.5 2.59,5.77 1.25,4.71C0.84,6.72 2.05,9.75 4,11.5C2.05,13.25 0.84,16.28 1.25,18.29C2.59,17.23 4.24,16.5 6,16.5C9.5,16.5 12,18.54 12,18.54C12,18.54 15.5,14 22.5,14L22.5,9C15.5,9 12,4.46 12,4.46M19,10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 19,13.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 19,10.5Z" />
+                    </svg>
+                </div>
+                <span class="line"></span>
+            </div>
+
+            <h1 class="hero-title">Minh Hiếu - Restaurant</h1>
+            <p class="hero-subtitle">MODERN ASIAN CUISINE</p>
+            <div class="bottom-line"></div>
+        </div>
+
+        <div class="wave bottom-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,60 C240,0 480,0 720,30 C960,60 1200,60 1440,30 L1440,60 L0,60 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-box">
+                <h3>📍 Adresse</h3>
+                <p>Kurfürstenstraße 23<br>56218 Mülheim-Kärlich</p>
+            </div>
+            <div class="info-box">
+                <h3>📞 Kontakt & Service</h3>
+                <p>Telefon: 02630 9669791</p>
+                <p>Dienstleistung: Zum Mitnehmen</p>
+            </div>
+            <div class="info-box">
+                <h3>🕒 Öffnungszeiten</h3>
+                <p>Di - Do: 11:00 - 21:00 Uhr</p>
+                <p>Fr - So: 11:00 - 22:00 Uhr</p>
+                <p>Montag: Geschlossen (Ruhetag)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="welcome-section">
+        <div class="welcome-container">
+            <div class="welcome-text">
+                <div class="title-wrapper">
+                    <h2 class="welcome-title">Herzlich<br>Willkommen</h2>
+                </div>
+                <h4 class="welcome-subtitle">IM MINH HIẾU</h4>
+                <p class="welcome-desc">Vielfältige Sushi-Varianten bilden den Rahmen für eine ideenreiche asiatische Küche. Hier finden nicht nur Sushi-Fans ihr Lieblingsgericht!</p>
+                <p class="welcome-desc">Gerne können Sie einen Tisch reservieren oder einfach vorbeikommen – wir freuen uns auf Sie.</p>
+                <a href="tel:026309669791" class="btn-call">Anrufen</a>
+            </div>
+
+            <div class="welcome-gallery">
+                <div class="gallery-item item-large">
+                    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=800&auto=format&fit=crop" alt="Cocktails" class="lightbox-trigger">
+                </div>
+                <div class="gallery-item item-small">
+                    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop" alt="Sushi Roll" class="lightbox-trigger">
+                </div>
+                <div class="gallery-item item-small">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop" alt="Sushi Plate" class="lightbox-trigger">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="gallery-video-section">
+        <div class="wave top-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,0 C240,60 480,60 720,30 C960,0 1200,0 1440,30 L1440,0 L0,0 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+
+        <div class="gv-content">
+            <h2 class="section-title">Ein Einblick</h2>
+            <p class="section-subtitle">GALERIE</p>
+
+            <div class="gv-gallery">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop" alt="Gallery 1" class="lightbox-trigger">
+                <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop" alt="Gallery 2" class="lightbox-trigger">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=600&auto=format&fit=crop" alt="Gallery 3" class="lightbox-trigger">
+            </div>
+
+            <div class="gv-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <div class="gv-video-wrapper">
+                <video controls poster="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=80&w=800&auto=format&fit=crop">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
+            </div>
+        </div>
+
+        <div class="wave bottom-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,60 C240,0 480,0 720,30 C960,60 1200,60 1440,30 L1440,60 L0,60 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="menu-container">
+            <div class="menu-image-col">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800&auto=format&fit=crop" alt="Minh Hiếu Dish" class="menu-img lightbox-trigger">
+            </div>
+
+            <div class="menu-text-col">
+                <div class="title-wrapper-center">
+                    <h2 class="menu-title">Menü</h2>
+                </div>
+                <h4 class="menu-subtitle">UNSERE SPEISEKARTE</h4>
+                <p class="menu-desc">
+                    Kommen Sie einfach vorbei oder reservieren Sie einen Tisch<br>
+                    – Wir freuen uns auf Sie
+                </p>
+
+                <div class="menu-hours">
+                    <p>Di. - Do. von 11:00 bis 21:00 Uhr</p>
+                    <p>Fr. - So. von 11:00 bis 22:00 Uhr</p>
+                    <br>
+                    <p>Montag ist Ruhetag</p>
+                    <br>
+                    <p style="color: #888; font-size: 0.8rem;">(Feiertage auf Anfrage)</p>
+                </div>
+
+                <div class="menu-actions">
+                    <a href="tel:026309669791" class="btn-red">Anrufen</a>
+                    <a href="menu.html" class="btn-red">Speisekarte</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="wave bottom-wave">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+                <path d="M0,60 C240,0 480,0 720,30 C960,60 1200,60 1440,30 L1440,60 L0,60 Z" fill="#333333"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="kontakt" class="kontakt-section">
+        <div class="kontakt-container">
+            <div class="kontakt-info">
+                <h2 class="red-script-title">Kontakt</h2>
+                <h4 class="dark-subtitle">WIR FREUEN UNS AUF SIE</h4>
+                
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ff5252" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="item-text">
+                            <strong>Adresse</strong>
+                            <p>Kurfürstenstraße 23, 56218 Mülheim-Kärlich</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ff5252" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="item-text">
+                            <strong>Telefonnummer</strong>
+                            <p>02630 9669791</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#ff5252" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div class="item-text">
+                            <strong>E-Mail</strong>
+                            <p>info@minhhieu-restaurant.de</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="red-script-title mt-40">Öffnungszeiten</h2>
+                <div class="hours-list">
+                    <p>Di. - Do. von 11:00 bis 21:00 Uhr</p>
+                    <p>Fr. - So. von 11:00 bis 22:00 Uhr</p>
+                    <br>
+                    <p>Montag ist Ruhetag</p>
+                    <br>
+                    <h4 class="holiday-title">Weihnachten/Silvester</h4>
+                    <p>24.12.24 geschlossen</p>
+                    <p>25.12.24 geschlossen</p>
+                    <p class="open-green">26.12.24 geöffnet</p>
+                    <p>31.12.24 geschlossen</p>
+                    <p>01.01.25 geschlossen</p>
+                </div>
+            </div>
+
+            <div class="kontakt-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2524.382029994645!2d7.4912959!3d50.3875565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47be6e3557e8486f%3A0x671f654b17f5c711!2sKurf%C3%BCrstenstra%C3%9Fe%2023%2C%2056218%20M%C3%BClheim-K%C3%A4rlich%2C%20Germany!5e0!3m2!1sen!2s!4v1713200000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>MINH HIẾU</h3>
+                    <p>KURFÜRSTENSTRASSE 23, 56218 MÜLHEIM-KÄRLICH</p>
+                    <p>02630 9669791</p>
+                    <p>INFO@MINHHIEU-RESTAURANT.DE</p>
+                    <div class="footer-links-small">
+                        <a href="#">IMPRESSUM</a> / <a href="#">DATENSCHUTZERKLÄRUNG</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="menu.html">Speisekarte</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const triggers = document.querySelectorAll('.lightbox-trigger');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.close-lightbox');
+
+            triggers.forEach(img => {
+                img.addEventListener('click', function() {
+                    lightbox.classList.add('active');
+                    lightboxImg.src = this.src; 
+                });
+            });
+
+            closeBtn.addEventListener('click', function() {
+                lightbox.classList.remove('active');
+            });
+
+            lightbox.addEventListener('click', function(e) {
+                if (e.target !== lightboxImg) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
