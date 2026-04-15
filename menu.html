@@ -9,6 +9,18 @@
     <style>
         /* === RESET & CƠ BẢN === */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* === ẨN THANH CUỘN (SCROLLBAR) MÀ VẪN CUỘN ĐƯỢC === */
+        html, body {
+            -ms-overflow-style: none;  /* Ẩn thanh cuộn trên Internet Explorer và Edge */
+            scrollbar-width: none;  /* Ẩn thanh cuộn trên Firefox */
+        }
+        
+        /* Ẩn thanh cuộn trên Chrome, Safari và Opera */
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            display: none; 
+        }
+
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
 
@@ -33,7 +45,7 @@
         .category-title { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; color: #222; }
         .category-subtitle { font-size: 0.9rem; color: #666; font-style: italic; }
         
-        /* BANNER CHO TỪNG LOẠI MÓN - ĐÃ TĂNG CHIỀU CAO & CĂN GIỮA ẢNH */
+        /* BANNER CHO TỪNG LOẠI MÓN */
         .category-banner { 
             width: 100%; 
             height: 300px; 
@@ -112,7 +124,14 @@
             .navbar { flex-direction: row; justify-content: space-between; padding: 10px 15px; min-height: auto; }
             .logo { position: relative; left: auto; transform: none; flex-shrink: 0; }
             .logo img { max-height: 40px; }
-            .nav-links { display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 10px; padding: 0; overflow-x: auto; align-items: center; }
+            
+            /* Ẩn thanh cuộn cho phần menu điều hướng trên mobile (nếu có scroll ngang) */
+            .nav-links { 
+                display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 10px; padding: 0; overflow-x: auto; align-items: center; 
+                -ms-overflow-style: none; scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar { display: none; }
+            
             .nav-links a { font-size: 11px; white-space: nowrap; }
             .menu-page-title { font-size: 1.8rem; margin-bottom: 30px; }
             .category-title { font-size: 1.3rem; }
@@ -328,7 +347,7 @@
 
         <div class="category-block">
             <div class="category-header"><h2 class="category-title">Saucen Gerichte</h2></div>
-            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Saucen Gerichte" class="category-banner">
+            <img src="https://images.unsplash.com/photo-1565557615712-421731d1f05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Saucen Gerichte" class="category-banner">
 
             <div class="items-grid">
                 <div class="dish"><div class="dish-head"><span class="dish-name">50. Thai Curry Soße</span></div></div>
