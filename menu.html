@@ -1,84 +1,207 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speisekarte - Minh Hiếu Restaurant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
     <style>
         /* === RESET & CƠ BẢN === */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* === ẨN THANH CUỘN (SCROLLBAR) MÀ VẪN CUỘN ĐƯỢC === */
-        html, body {
-            -ms-overflow-style: none;  /* Ẩn thanh cuộn trên Internet Explorer và Edge */
-            scrollbar-width: none;  /* Ẩn thanh cuộn trên Firefox */
-        }
-        
-        /* Ẩn thanh cuộn trên Chrome, Safari và Opera */
-        html::-webkit-scrollbar, body::-webkit-scrollbar {
-            display: none; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
+        /* === ẨN THANH CUỘN (SCROLLBAR) MÀ VẪN CUỘN ĐƯỢC === */
+        html,
+        body {
+            -ms-overflow-style: none;
+            /* IE và Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+        }
 
         /* === NAVBAR === */
         .navbar {
-            background-color: #ffffff; display: flex; justify-content: flex-end; align-items: center;
-            padding: 10px 80px; position: relative; z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            background-color: #ffffff;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 80px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             min-height: 80px;
         }
-        .logo { position: absolute; left: 30%; transform: translateX(-50%); display: flex; align-items: center; z-index: 11; }
-        .logo img { height: auto; max-height: 90px; max-width: 250px; object-fit: contain; display: block; }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links a { text-decoration: none; color: #555; font-size: 13px; font-weight: 600; text-transform: capitalize; transition: color 0.3s; }
-        .nav-links a:hover { color: #d32f2f; }
+
+        .logo {
+            position: absolute;
+            left: 30%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            z-index: 11;
+        }
+
+        .logo img {
+            height: auto;
+            max-height: 90px;
+            max-width: 250px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+       .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px; /* Tăng nhẹ kích thước cho dễ đọc */
+            font-weight: 600;
+            text-transform: capitalize; /* 👈 Đổi từ uppercase sang capitalize */
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d32f2f;
+        }
+
+        /* Style cho nút đặt hàng/đặt bàn */
+        .btn-order {
+            background-color: #d32f2f;
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-reserve {
+            border: 2px solid #d32f2f;
+            color: #d32f2f !important;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
 
         /* === MENU CONTENT === */
-        .menu-page { max-width: 1200px; margin: 0 auto; padding: 30px 15px 80px 15px; }
-        .menu-page-title { text-align: center; font-size: 2.2rem; font-weight: 700; margin-bottom: 40px; color: #222; text-transform: uppercase; }
-
-        .category-block { margin-bottom: 50px; }
-        .category-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #d32f2f; padding-bottom: 8px; margin-bottom: 20px; }
-        .category-title { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; color: #222; }
-        .category-subtitle { font-size: 0.9rem; color: #666; font-style: italic; }
-        
-        /* BANNER CHO TỪNG LOẠI MÓN */
-        .category-banner { 
-            width: 100%; 
-            height: 300px; 
-            object-fit: cover; 
-            object-position: center;
-            border-radius: 8px; 
-            margin-bottom: 25px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+        .menu-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 15px 80px 15px;
         }
 
-        .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 30px; }
+        .menu-page-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #222;
+            text-transform: uppercase;
+        }
 
-        /* KHUNG HIỂN THỊ MÓN ĂN */
-        .dish { 
-            background: #fff; 
-            padding: 15px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+        .category-block {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #222;
+        }
+
+        .category-subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .category-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+
+        .dish {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             border: 1px solid #f9f9f9;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
             margin-bottom: 5px;
         }
+
         .dish:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(211, 47, 47, 0.1);
         }
 
-        .dish-head { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 1.05rem; color: #222; margin-bottom: 5px; }
-        .dish-name { flex: 1; margin-right: 15px; line-height: 1.3;}
-        .dish-desc { font-size: 0.85rem; color: #666; line-height: 1.4; font-style: italic; margin-bottom: 5px; }
+        .dish-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #222;
+            margin-bottom: 5px;
+        }
 
-        /* HIGHLIGHT GIÁ TIỀN */
-        .price-badge, .variant-list li span:last-child {
+        .dish-desc {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .price-badge,
+        .variant-list li span:last-child {
             color: #d32f2f;
             font-weight: 700;
             background-color: #ffeded;
@@ -87,15 +210,39 @@
             white-space: nowrap;
         }
 
-        /* LIST LỰA CHỌN TRÌNH BÀY ĐẸP MẮT */
-        .variant-list { list-style: none; margin-top: 10px; font-size: 0.85rem; color: #444; background: #fcfcfc; padding: 6px 12px; border-radius: 6px; border: 1px solid #eee; }
-        .variant-list li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #eee; align-items: center; transition: background-color 0.2s;}
-        .variant-list li:hover { background-color: #f5f5f5; }
-        .variant-list li:last-child { border-bottom: none; }
+        .variant-list {
+            list-style: none;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: #444;
+            background: #fcfcfc;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
 
-        .sushi-sub-cat { grid-column: 1 / -1; font-size: 1.15rem; font-weight: 700; color: #d32f2f; margin-top: 20px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+        .variant-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #eee;
+            align-items: center;
+        }
 
-        /* KHUNG TÙY CHỌN CHUNG */
+        .variant-list li:last-child {
+            border-bottom: none;
+        }
+
+        .sushi-sub-cat {
+            grid-column: 1 / -1;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #d32f2f;
+            margin-top: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 6px;
+        }
+
         .shared-topping-box {
             grid-column: 1 / -1;
             background: #fffafa;
@@ -103,12 +250,23 @@
             padding: 18px;
             border-radius: 4px;
             margin-top: 10px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.03);
         }
-        .shared-topping-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; color: #222; }
-        .shared-topping-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; padding: 10px 15px; }
 
-        /* === FOOTER CHÂN TRANG === */
+        .shared-topping-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .shared-topping-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 40px;
+            padding: 10px 15px;
+        }
+
+        /* === FOOTER === */
         .footer {
             position: relative;
             background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat;
@@ -148,37 +306,6 @@
             gap: 40px;
         }
 
-        .footer-left h3 {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .footer-left p {
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .footer-links-small {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
-
-        .footer-links-small a {
-            color: #ffffff;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-links-small a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
         .footer-nav {
             list-style: none;
             display: grid;
@@ -191,48 +318,66 @@
             text-decoration: none;
             font-size: 0.9rem;
             opacity: 0.9;
-            transition: opacity 0.3s;
         }
 
-        .footer-nav a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 1024px) { .navbar { padding: 15px 30px; } .logo { left: 20%; } }
-        @media (max-width: 768px) {
-            .navbar { flex-direction: row; justify-content: space-between; padding: 10px 15px; min-height: auto; }
-            .logo { position: relative; left: auto; transform: none; flex-shrink: 0; }
-            .logo img { max-height: 40px; }
-            
-            /* Ẩn thanh cuộn cho phần menu điều hướng trên mobile (nếu có scroll ngang) */
-            .nav-links { 
-                display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: flex-end; gap: 10px; padding: 0; overflow-x: auto; align-items: center; 
-                -ms-overflow-style: none; scrollbar-width: none;
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 15px 30px;
             }
-            .nav-links::-webkit-scrollbar { display: none; }
-            
-            .nav-links a { font-size: 11px; white-space: nowrap; }
-            .menu-page-title { font-size: 1.8rem; margin-bottom: 30px; }
-            .category-title { font-size: 1.3rem; }
-            .category-banner { height: 180px; }
-            .items-grid, .shared-topping-grid { grid-template-columns: 1fr; gap: 15px; }
-            .dish { padding: 10px; gap: 10px; }
-            .footer-content { flex-direction: column; gap: 20px; }
+
+            .logo {
+                left: 20%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px 15px;
+                height: auto;
+            }
+
+            .logo {
+                position: relative;
+                left: auto;
+                transform: none;
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .items-grid,
+            .shared-topping-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <nav class="navbar">
         <a href="index.html#home" class="logo">
-            <img src="logo.png" alt="Minh Hiếu Restaurant Logo" onerror="this.src='https://via.placeholder.com/150x60?text=LOGO'">
+            <img src="logo.png" alt="Minh Hiếu Restaurant Logo"
+                onerror="this.src='https://via.placeholder.com/150x60?text=LOGO'">
         </a>
         <ul class="nav-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
+            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true"
+                    target="_blank" class="btn-reserve">Reservieren</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
+                    target="_blank" class="btn-order">Bestellen</a></li>
         </ul>
     </nav>
 
@@ -244,318 +389,235 @@
                 <h2 class="category-title">Mittag Angebot</h2>
                 <span class="category-subtitle">11:00 - 16:00 Uhr</span>
             </div>
-            <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Mittag Angebot" class="category-banner">
-            
+            <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="Mittag Angebot" class="category-banner">
+
             <div class="items-grid">
                 <div class="dish">
                     <div class="dish-head"><span class="dish-name">60. Gebratene Asia-Nudeln</span></div>
                     <ul class="variant-list">
-                        <li><span>Vegetarisch</span><span>9,00€</span></li>
-                        <li><span>Tofu</span><span>9,50€</span></li>
-                        <li><span>Hühnerfleisch</span><span>10,00€</span></li>
-                        <li><span>Rindfleisch</span><span>12,90€</span></li>
-                        <li><span>Garnelen</span><span>12,90€</span></li>
-                        <li><span>Knuspr. Huhn</span><span>12,90€</span></li>
-                        <li><span>Entenbrust</span><span>16,90€</span></li>
-                    </ul>
-                </div>
-                
-                <div class="dish">
-                    <div class="dish-head"><span class="dish-name">61. Gebratener Eierreis</span></div>
-                    <ul class="variant-list">
-                        <li><span>Vegetarisch</span><span>9,50€</span></li>
-                        <li><span>Tofu</span><span>10,00€</span></li>
-                        <li><span>Hühnerfleisch</span><span>10,50€</span></li>
-                        <li><span>Rindfleisch</span><span>13,50€</span></li>
-                        <li><span>Garnelen</span><span>13,50€</span></li>
-                        <li><span>Knuspr. Huhn</span><span>13,50€</span></li>
-                        <li><span>Entenbrust</span><span>17,50€</span></li>
+                        <li><span>a. Vegetarisch</span><span>9,00€</span></li>
+                        <li><span>b. Tofu</span><span>9,50€</span></li>
+                        <li><span>c. Hühnerfleisch</span><span>10,00€</span></li>
+                        <li><span>d. Rindfleisch</span><span>12,90€</span></li>
+                        <li><span>e. Entenbrust (Barbarie Ente)</span><span>16,90€</span></li>
+                        <li><span>f. Garnelen</span><span>12,90€</span></li>
+                        <li><span>g. Knusprige Hühnerbrust</span><span>12,90€</span></li>
                     </ul>
                 </div>
 
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">62. Chicken Poke Bowl</span><span class="price-badge">13,90€</span></div>
+                    <div class="dish-head"><span class="dish-name">61. Gebratener Eierreis</span></div>
+                    <ul class="variant-list">
+                        <li><span>a. Vegetarisch</span><span>9,50€</span></li>
+                        <li><span>b. Tofu</span><span>10,00€</span></li>
+                        <li><span>c. Hühnerfleisch</span><span>10,50€</span></li>
+                        <li><span>d. Rindfleisch</span><span>13,50€</span></li>
+                        <li><span>e. Entenbrust (Barbarie Ente)</span><span>17,50€</span></li>
+                        <li><span>f. Garnelen</span><span>13,50€</span></li>
+                        <li><span>g. Knusprige Hühnerbrust</span><span>13,50€</span></li>
+                    </ul>
+                </div>
+
+                <div class="dish">
+                    <div class="dish-head"><span class="dish-name">62. Chicken Poke Bowl</span><span
+                            class="price-badge">13,90€</span></div>
                     <div class="dish-desc">Salat, Edamame, Gurke, Paprika, Mais, Seetangsalat, hausgemachte Sauce.</div>
                 </div>
 
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">63. Tofu Poke Bowl</span><span class="price-badge">13,90€</span></div>
-                    <div class="dish-desc">Japanischer Tofu, Salat, Edamame, Gurke, hausgemachte Sauce.</div>
+                    <div class="dish-head"><span class="dish-name">63. Tofu Poke Bowl</span><span
+                            class="price-badge">13,90€</span></div>
                 </div>
 
                 <div class="dish">
                     <div class="dish-head"><span class="dish-name">64. Mini Baked (8 Stk.)</span></div>
                     <ul class="variant-list">
-                        <li><span>a. Lachs</span><span>6,50€</span></li>
-                        <li><span>b. Thunfisch</span><span>7,00€</span></li>
-                        <li><span>c. Hähnchen</span><span>6,50€</span></li>
+                        <li><span>a. Baked Sake - Lachs</span><span>6,50€</span></li>
+                        <li><span>b. Baked Tekka - Thunfisch</span><span>7,00€</span></li>
+                        <li><span>c. Baked Chicken - Hähnchen</span><span>6,50€</span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Suppen</h2></div>
-            <img src="https://buidinhhung.github.io/minh-hieu-restaurant/supen.jpg" alt="Suppen" class="category-banner">
-
+            <div class="category-header">
+                <h2 class="category-title">Suppen</h2>
+            </div>
             <div class="items-grid">
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">1. Miso-Suppe</span><span class="price-badge">5,00€</span></div>
-                    <div class="dish-desc">Würzige Suppe aus Misopaste mit Tofu, Algen, Frühlingszwiebeln.</div>
+                    <div class="dish-head"><span>1. Miso-Suppe</span><span class="price-badge">5,00€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">2. Bio Lachs-Suppe</span><span class="price-badge">6,00€</span></div>
-                    <div class="dish-desc">Misopaste mit Tofu, Algen, Lachs, Frühlingszwiebeln.</div>
+                    <div class="dish-head"><span>2. Bio Lachs-Suppe</span><span class="price-badge">6,00€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">3. Wantan Suppe</span><span class="price-badge">5,50€</span></div>
-                    <div class="dish-desc">Klare Brühe mit gefüllten Teigtaschen und Gemüse.</div>
+                    <div class="dish-head"><span>3. Wantan Suppe</span><span class="price-badge">5,50€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">4. Hühner-Suppe</span><span class="price-badge">5,50€</span></div>
-                    <div class="dish-desc">Klare Suppe mit Mais, Bohnen, Pilzen, Hühnerfleisch.</div>
+                    <div class="dish-head"><span>4. Hühner-Suppe</span><span class="price-badge">5,50€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">5. Tom Yum Suppe</span></div>
-                    <div class="dish-desc">Scharf-säuerlich mit Kräutern.</div>
+                    <div class="dish-head"><span>5. Tom Yum Suppe</span></div>
                     <ul class="variant-list">
-                        <li><span>mit Tofu</span><span>5,00€</span></li>
-                        <li><span>mit Hühnerfleisch</span><span>5,50€</span></li>
-                        <li><span>mit Garnelen</span><span>6,50€</span></li>
+                        <li><span>a. Tofu</span><span>5,00€</span></li>
+                        <li><span>b. Hühnerfleisch</span><span>5,50€</span></li>
+                        <li><span>c. Garnelen</span><span>6,50€</span></li>
                     </ul>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">6. Tom Kha Suppe</span></div>
-                    <div class="dish-desc">Cremige Kokosmilchsuppe.</div>
+                    <div class="dish-head"><span>6. Tom Kha Suppe</span></div>
                     <ul class="variant-list">
-                        <li><span>mit Tofu</span><span>5,00€</span></li>
-                        <li><span>mit Hühnerfleisch</span><span>5,50€</span></li>
-                        <li><span>mit Garnelen</span><span>6,50€</span></li>
+                        <li><span>a. Tofu</span><span>5,00€</span></li>
+                        <li><span>b. Hühnerfleisch</span><span>5,50€</span></li>
+                        <li><span>c. Garnelen</span><span>6,50€</span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Vorspeisen & Salate</h2></div>
-            <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vorspeisen & Salate" class="category-banner">
-
+            <div class="category-header">
+                <h2 class="category-title">Vorspeisen</h2>
+            </div>
             <div class="items-grid">
-                <div class="dish"><div class="dish-head"><span class="dish-name">7. Veg. Frühlingsrollen (6 Stk.)</span><span class="price-badge">5,50€</span></div></div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">8. Gyoza (4 Stk.)</span></div>
+                    <div class="dish-head"><span>7. Vegetarische Frühlingsrollen (6 Stk.)</span><span
+                            class="price-badge">5,50€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>8. Vegetarische Gyoza (4 Stk.)</span></div>
                     <ul class="variant-list">
-                        <li><span>Vegetarisch</span><span>5,50€</span></li>
-                        <li><span>Hühnerfleisch</span><span>5,50€</span></li>
-                        <li><span>Seafood (Meeresfrüchte)</span><span>6,00€</span></li>
+                        <li><span>a. Vegetarisch</span><span>5,50€</span></li>
+                        <li><span>b. Hähnchen</span><span>5,50€</span></li>
+                        <li><span>c. Seafood</span><span>6,00€</span></li>
                     </ul>
                 </div>
-                
-                <div class="dish"><div class="dish-head"><span class="dish-name">10. Gebackene Wantan (6 Stk.)</span><span class="price-badge">5,50€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">11. Ebi Tempura (3 Stk.)</span><span class="price-badge">7,00€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">12. Nem (2 Stk.)</span><span class="price-badge">6,00€</span></div><div class="dish-desc">Vietnamesische Frühlingsrollen.</div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">13. Edamame</span><span class="price-badge">5,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">14. Saté-Spieße</span><span class="price-badge">6,00€</span></div></div>
-                
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">15. Sommerrollen (2 Stk.)</span></div>
+                    <div class="dish-head"><span>10. Gebackene Wantan (6 Stk.)</span><span
+                            class="price-badge">5,50€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>11. Ebi Tempura (3 Stk.)</span><span class="price-badge">7,00€</span>
+                    </div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>12. Nem (2 Stk.)</span><span class="price-badge">6,00€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>13. Edamame</span><span class="price-badge">5,90€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>14. Saté-Spieße (2 Stk.)</span><span class="price-badge">6,00€</span>
+                    </div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>15. Sommerrollen (2 Stk.)</span></div>
                     <ul class="variant-list">
-                        <li><span>mit Tofu</span><span>6,00€</span></li>
-                        <li><span>mit Hühnerfleisch</span><span>6,50€</span></li>
-                        <li><span>mit Garnelen</span><span>7,00€</span></li>
-                        <li><span>mit Ebi</span><span>7,50€</span></li>
+                        <li><span>a. Tofu</span><span>6,00€</span></li>
+                        <li><span>b. Hühnerfleisch</span><span>6,50€</span></li>
+                        <li><span>c. Garnelen</span><span>7,00€</span></li>
+                        <li><span>d. Ebi Tempura</span><span>7,50€</span></li>
                     </ul>
                 </div>
-                
-                <div class="dish"><div class="dish-head"><span class="dish-name">16. Yakitori-Spieße (3 Stk.)</span><span class="price-badge">6,00€</span></div></div>
-                
-                <div class="sushi-sub-cat">Frische Salate</div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">17. Wakame Salat</span><span class="price-badge">7,50€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">18. Grilled Chicken Salat</span><span class="price-badge">14,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">19. Beef Salat</span><span class="price-badge">15,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">20. Grilled Duck Salat</span><span class="price-badge">16,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">21. Fried Tofu Salat</span><span class="price-badge">12,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">22. Shrimp Salat</span><span class="price-badge">16,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">23. Glasnudeln Salat</span><span class="price-badge">9,00€</span></div></div>
+                <div class="dish">
+                    <div class="dish-head"><span>16. Yakitori-Spieße (3 Stk.)</span><span
+                            class="price-badge">6,00€</span></div>
+                </div>
             </div>
         </div>
 
         <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Vietnamesische Spezialitäten</h2></div>
-            <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Vietnamesische Nudeln" class="category-banner">
-            
+            <div class="category-header">
+                <h2 class="category-title">Vietnamesische Nudeln</h2>
+            </div>
             <div class="items-grid">
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">30. Phở - Traditionelle Suppe</span></div>
+                    <div class="dish-head"><span>30. Phở</span></div>
                     <ul class="variant-list">
-                        <li><span>Tofu</span><span>13,90€</span></li>
-                        <li><span>Hühnerfleisch</span><span>14,90€</span></li>
-                        <li><span>Rindfleisch</span><span>16,90€</span></li>
+                        <li><span>a. Tofu</span><span>13,90€</span></li>
+                        <li><span>b. Hühnerfleisch</span><span>14,90€</span></li>
+                        <li><span>c. Rindfleisch</span><span>16,90€</span></li>
                     </ul>
                 </div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">35. Bún Nem</span><span class="price-badge">14,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">36. Bún Thịt Nướng</span><span class="price-badge">15,90€</span></div></div>
-                
-                <div class="dish"><div class="dish-head"><span class="dish-name">38. Bò Xào Xả Ớt</span><span class="price-badge">15,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">39. Gà Xào Xả Ớt</span><span class="price-badge">14,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">40. Bò Xào Rau</span><span class="price-badge">15,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">41. Gà Xào Rau</span><span class="price-badge">14,90€</span></div></div>
-
-                <div class="sushi-sub-cat">Wok & Nudelgerichte</div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">31. Phở Udon Curry</span></div><div class="dish-desc">Reisbandnudeln mit aromatischer Thai-Curry Soße.</div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">32. Phở Xào</span></div><div class="dish-desc">Gebratene Reisbandnudeln mit Gemüse.</div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">33. Miến Xào</span></div><div class="dish-desc">Gebratene Glasnudeln mit Gemüse.</div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">43. Japanische Udon-Nudeln</span></div><div class="dish-desc">Gebratene Udon mit Gemüse.</div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">45. Bún Nam Bộ</span></div><div class="dish-desc">Reisnudelsalat mit Erdnüssen, Röstzwiebeln.</div></div>
+                <div class="dish">
+                    <div class="dish-head"><span>35. Bún Nem</span><span class="price-badge">14,90€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>36. Bún Thịt Nướng</span><span class="price-badge">15,90€</span></div>
+                </div>
 
                 <div class="shared-topping-box">
-                    <div class="shared-topping-title">Wahlweise Beilage für Gerichte 31, 32, 33, 43, 45:</div>
+                    <div class="shared-topping-title">31. Phở Udon Curry / 32. Phở Xào / 33. Miến Xào / 43. Udon / 45.
+                        Bún Nam Bộ</div>
                     <ul class="variant-list shared-topping-grid">
                         <li><span>a. Tofu</span><span>14,90€</span></li>
                         <li><span>b. Hühnerfleisch</span><span>14,90€</span></li>
-                        <li><span>c. Gegrillte Hühnerbrust</span><span>16,90€</span></li>
-                        <li><span>d. Gegrilltes Rindfleisch</span><span>17,90€</span></li>
+                        <li><span>c. Gegr. Hühnerbrust</span><span>16,90€</span></li>
+                        <li><span>d. Gegr. Rindfleisch</span><span>17,90€</span></li>
                         <li><span>e. Entenbrust</span><span>18,90€</span></li>
-                        <li><span>f. Garnelen</span><span>18,90€</span></li>
-                        <li><span>g. Knusprige Hühnerbrust</span><span>15,90€</span></li>
-                        <li><span>h. Gegrillter Bio Lachs</span><span>19,90€</span></li>
-                        <li><span>i. Gegrillter Thunfisch</span><span>20,90€</span></li>
+                        <li><span>f. Gegr. Garnelen</span><span>18,90€</span></li>
+                        <li><span>g. Knuspr. Hühnerbrust</span><span>15,90€</span></li>
+                        <li><span>h. Gegr. Bio Lachs</span><span>19,90€</span></li>
+                        <li><span>i. Gegr. Thunfisch</span><span>20,90€</span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Saucen Gerichte</h2></div>
-            <img src="mango.webp" alt="Saucen Gerichte" class="category-banner">
-
+            <div class="category-header">
+                <h2 class="category-title">Vietnam Reis & Saucen</h2>
+            </div>
             <div class="items-grid">
-                <div class="dish"><div class="dish-head"><span class="dish-name">50. Thai Curry Soße</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">51. Thai Erdnuss Soße</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">52. Thai Mango Soße</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">53. Süß-Sauer Soße</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">54. Chop Suey</span></div></div>
-                
-                <div class="shared-topping-box">
-                    <div class="shared-topping-title">Mit Jasmin-Reis. Beilage nach Wahl für Gerichte 50 - 54:</div>
-                    <ul class="variant-list shared-topping-grid">
-                        <li><span>Tofu</span><span>12,90€</span></li>
-                        <li><span>Hühnerfleisch</span><span>12,90€</span></li>
-                        <li><span>Gegrillte Hühnerbrust</span><span>14,90€</span></li>
-                        <li><span>Gegrilltes Rindfleisch</span><span>15,90€</span></li>
-                        <li><span>Entenbrust</span><span>16,90€</span></li>
-                        <li><span>Garnelen</span><span>16,90€</span></li>
+                <div class="dish">
+                    <div class="dish-head"><span>Bò Xào (Xả Ớt)</span><span class="price-badge">15,90€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>Gà Xào (Xả Ớt)</span><span class="price-badge">14,90€</span></div>
+                </div>
+                <div class="dish">
+                    <div class="dish-head"><span>Thai Curry / Erdnuss / Mango / Süß-Sauer / Chop Suey</span></div>
+                    <ul class="variant-list">
+                        <li><span>Tofu / Huhn</span><span>12,90€</span></li>
+                        <li><span>Gegr. Hühnerbrust</span><span>14,90€</span></li>
+                        <li><span>Gegr. Rindfleisch</span><span>15,90€</span></li>
+                        <li><span>Ente / Garnelen</span><span>16,90€</span></li>
                     </ul>
                 </div>
             </div>
         </div>
 
         <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Sushi & Poke Bowl</h2></div>
-            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sushi & Poke Bowl" class="category-banner">
-
+            <div class="category-header">
+                <h2 class="category-title">Sushi & Dessert</h2>
+            </div>
             <div class="items-grid">
-                <div class="sushi-sub-cat" style="margin-top:0;">Nigiri (2 Stk.) & Sashimi</div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Nigiri (2 Stk.)</span></div>
-                    <ul class="variant-list">
-                        <li><span>Maguro (Thunfisch)</span><span>5,50€</span></li>
-                        <li><span>Sake (Lachs)</span><span>5,50€</span></li>
-                        <li><span>Ebi (Garnele)</span><span>5,50€</span></li>
-                        <li><span>Aburi Sake (Flambiert)</span><span>6,50€</span></li>
-                        <li><span>Aburi Maguro (Flambiert)</span><span>6,50€</span></li>
-                    </ul>
+                    <div class="dish-head"><span>P1. Maki-Mix (18 Stk.)</span><span class="price-badge">14,50€</span>
+                    </div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Sashimi</span></div>
-                    <ul class="variant-list">
-                        <li><span>Sashimi Salmon (Lachs)</span><span>19,90€</span></li>
-                        <li><span>Sashimi Tuna (Thunfisch)</span><span>20,90€</span></li>
-                        <li><span>Sashimi Combo (Chef Mix)</span><span>39,90€</span></li>
-                    </ul>
-                </div>
-
-                <div class="sushi-sub-cat">Maki (6 Stk.) & Inside Out (8 Stk.)</div>
-                <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Maki (6 Stk.)</span></div>
-                    <ul class="variant-list">
-                        <li><span>Avocado Maki</span><span>4,50€</span></li>
-                        <li><span>Kappa Maki (Gurke)</span><span>4,50€</span></li>
-                        <li><span>Sake Maki (Lachs)</span><span>5,50€</span></li>
-                        <li><span>Tekka Maki (Thunfisch)</span><span>5,50€</span></li>
-                        <li><span>Ebi Maki (Garnele)</span><span>5,50€</span></li>
-                    </ul>
+                    <div class="dish-head"><span>P8. Couple Choice (2 Pers.)</span><span
+                            class="price-badge">59,00€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Inside Out (8 Stk.)</span></div>
-                    <ul class="variant-list">
-                        <li><span>California Inside Out</span><span>9,50€</span></li>
-                        <li><span>Veggie Inside Out</span><span>9,50€</span></li>
-                        <li><span>Sake Inside Out</span><span>10,50€</span></li>
-                        <li><span>Tuna Inside Out</span><span>10,50€</span></li>
-                        <li><span>Ebi Inside Out</span><span>10,50€</span></li>
-                    </ul>
-                </div>
-
-                <div class="sushi-sub-cat">Special & Crunchy Rolls</div>
-                <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Special Rolls</span></div>
-                    <ul class="variant-list">
-                        <li><span>Sake Special Roll</span><span>13,90€</span></li>
-                        <li><span>Ebi Special Roll</span><span>13,90€</span></li>
-                        <li><span>Blazing Tuna Roll</span><span>14,90€</span></li>
-                        <li><span>Crispy Tiger Roll</span><span>14,90€</span></li>
-                    </ul>
+                    <div class="dish-head"><span>P9. Sakura Ocean Mix (3-4 Pers.)</span><span
+                            class="price-badge">99,00€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Crunchy Rolls</span></div>
-                    <ul class="variant-list">
-                        <li><span>Veggie Crunchy</span><span>9,90€</span></li>
-                        <li><span>Kani Crunchy</span><span>9,90€</span></li>
-                        <li><span>Sake Crunchy</span><span>10,90€</span></li>
-                        <li><span>Tuna Crunchy</span><span>10,90€</span></li>
-                        <li><span>Ebi Crunchy</span><span>10,90€</span></li>
-                    </ul>
-                </div>
-
-                <div class="sushi-sub-cat">Poke Bowl & Sushi Menüs</div>
-                <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Poke Bowls</span></div>
-                    <ul class="variant-list">
-                        <li><span>Tofu / Veggie Poke Bowl</span><span>14,90€</span></li>
-                        <li><span>Sake Poke</span><span>15,90€</span></li>
-                        <li><span>Tuna Poke</span><span>15,90€</span></li>
-                        <li><span>Ebi Poke</span><span>15,90€</span></li>
-                    </ul>
+                    <div class="dish-head"><span>D1. Gebackene Banane</span><span class="price-badge">5,90€</span></div>
                 </div>
                 <div class="dish">
-                    <div class="dish-head"><span class="dish-name">Sushi Menüs</span></div>
-                    <ul class="variant-list">
-                        <li><span>P1. Maki-Mix Menü</span><span>14,50€</span></li>
-                        <li><span>P4. Crunchy Menü</span><span>26,50€</span></li>
-                        <li><span>P8. Couple Choice (2 Pers.)</span><span>59,00€</span></li>
-                    </ul>
+                    <div class="dish-head"><span>D3. Mochi Eis (2 Stk.)</span><span class="price-badge">5,90€</span>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="category-block">
-            <div class="category-header"><h2 class="category-title">Kinder Menu & Dessert</h2></div>
-            <img src="https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Kinder Menu & Dessert" class="category-banner">
-
-            <div class="items-grid">
-                <div class="dish"><div class="dish-head"><span class="dish-name">K1. Reis mit Knusperhuhn</span><span class="price-badge">10,50€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">K2. Reis mit Saté Spieße</span><span class="price-badge">9,50€</span></div></div>
-                
-                <div class="dish"><div class="dish-head"><span class="dish-name">Gebackene Banane</span><span class="price-badge">5,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">Gebackener Apfel</span><span class="price-badge">5,90€</span></div></div>
-                <div class="dish"><div class="dish-head"><span class="dish-name">Mochi Eis (2 Stk.)</span><span class="price-badge">5,90€</span></div></div>
-            </div>
-        </div>
-
     </section>
 
-   <footer class="footer">
+    <footer class="footer">
         <div class="footer-overlay"></div>
         <div class="footer-container">
             <div class="footer-line"></div>
@@ -564,21 +626,18 @@
                     <h3>MINH HIẾU</h3>
                     <p>KURFÜRSTENSTRASSE 23, 56218 MÜLHEIM-KÄRLICH</p>
                     <p>02630 9669791</p>
-                    <p>INFO@MINHHIEU-RESTAURANT.DE</p>
-                    <div class="footer-links-small">
-                        <a href="impressum.html">IMPRESSUM</a> / <a href="Datenschutzerklärung.html">DATENSCHUTZERKLÄRUNG</a>
-                    </div>
+                    <p>ALLE GERICHTE AUCH ZUM MITNEHMEN!</p>
                 </div>
                 <div class="footer-right">
                     <ul class="footer-nav">
                         <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#kontakt">Kontakt</a></li>
-                        <li><a href="index.html#galerie">Galerie</a></li>
                         <li><a href="menu.html">Speisekarte</a></li>
+                        <li><a href="impressum.html">IMPRESSUM</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
 </body>
+
 </html>

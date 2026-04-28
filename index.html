@@ -16,13 +16,6 @@
             box-sizing: border-box;
         }
 
-        /* === RESET & CƠ BẢN === */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         /* ===== 🔥 FIX SCROLL WEBCAKE (CHỈ THÊM ĐOẠN NÀY) ===== */
         html,
         body {
@@ -62,8 +55,9 @@
             justify-content: flex-end;
             align-items: center;
             padding: 15px 80px;
-            position: relative;
-            z-index: 10;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             min-height: 100px;
         }
@@ -85,83 +79,49 @@
             display: block;
         }
 
-        .nav-links {
-            .nav-links {
-                list-style: none;
-                display: flex;
-                gap: 40px;
-                margin-left: 60px;
-                /* 👈 đẩy vào trái */
-            }
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #555;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: capitalize;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff5252;
-        }
-
-        /* ===== GIỮ NGUYÊN TOÀN BỘ CODE BÊN DƯỚI ===== */
-
-        /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
-        .navbar {
-            background-color: #ffffff;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 15px 80px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            min-height: 100px;
-        }
-
-        /* === LOGO IMAGE === */
-        .logo {
-            position: absolute;
-            left: 30%;
-            /* Vị trí logo PC */
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            z-index: 11;
-        }
-
-        .logo img {
-            height: auto;
-            max-height: 120px;
-            max-width: 300px;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* === DANH SÁCH MENU === */
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 40px;
+            gap: 25px;
+            align-items: center;
         }
 
-        .nav-links a {
+       .nav-links a {
             text-decoration: none;
             color: #555;
-            font-size: 14px;
+            font-size: 14px; /* Tăng nhẹ kích thước cho dễ đọc */
             font-weight: 600;
-            text-transform: capitalize;
+            text-transform: capitalize; /* 👈 Đổi từ uppercase sang capitalize */
             letter-spacing: 0.5px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: #ff5252;
+        }
+
+        /* STYLE THÊM CHO 2 NÚT ĐẶT HÀNG */
+        .btn-order {
+            background-color: #ff5252;
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s !important;
+        }
+
+        .btn-order:hover {
+            background-color: #d32f2f !important;
+        }
+
+        .btn-reserve {
+            border: 2px solid #ff5252;
+            color: #ff5252 !important;
+            padding: 8px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-reserve:hover {
+            background-color: #fff1f1;
         }
 
         /* === HERO SECTION (ẢNH BÌA) === */
@@ -567,6 +527,11 @@
             margin-bottom: 30px;
         }
 
+        .takeaway-badge {
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
         .menu-hours {
             font-size: 0.85rem;
             color: #666;
@@ -860,7 +825,7 @@
             }
 
             .logo {
-                left: 20%;
+                left: 10%;
             }
         }
 
@@ -1082,6 +1047,10 @@
             <li><a href="#kontakt">Kontakt</a></li>
             <li><a href="#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
+            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true"
+                    target="_blank" class="btn-reserve">Reservieren</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
+                    target="_blank" class="btn-order">Bestellen</a></li>
         </ul>
     </nav>
 
@@ -1104,7 +1073,7 @@
                 <span class="line"></span>
             </div>
 
-            <h1 class="hero-title">Minh Hiếu   Restaurant</h1>
+            <h1 class="hero-title">Minh Hiếu Restaurant</h1>
             <p class="hero-subtitle">MODERN ASIAN CUISINE</p>
             <div class="bottom-line"></div>
         </div>
@@ -1116,6 +1085,23 @@
         </div>
     </header>
 
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-box">
+                <h3>Địa chỉ</h3>
+                <p>Kurfürstenstraße 23, 56218 Mülheim-Kärlich</p>
+            </div>
+            <div class="info-box">
+                <h3>Điện thoại</h3>
+                <p>02630 9669791</p>
+            </div>
+            <div class="info-box">
+                <h3>Thời gian mở cửa</h3>
+                <p>Di. - Do. 11:00 - 21:00<br>Fr. - So. 11:00 - 22:00</p>
+            </div>
+        </div>
+    </section>
+
     <section class="welcome-section">
         <div class="welcome-container">
             <div class="welcome-text">
@@ -1124,7 +1110,7 @@
                 </div>
                 <h4 class="welcome-subtitle">IM MINH HIẾU</h4>
                 <p class="welcome-desc">Vielfältige Sushi-Varianten bilden den Rahmen für eine ideenreiche asiatische
-                    Küche. Hier finden nicht nur Sushi-Fans ihr Lieblingsgericht!</p>
+                    Küche. Hier finden không chỉ Sushi-Fans ihr Lieblingsgericht!</p>
                 <p class="welcome-desc">Gerne können Sie einen Tisch reservieren oder einfach vorbeikommen – wir freuen
                     uns auf Sie.</p>
                 <a href="tel:026309669791" class="btn-call">Anrufen</a>
@@ -1176,10 +1162,10 @@
             </div>
 
             <div class="gv-video-wrapper">
-                <video controls playsinline muted preload="auto" width="100%" poster="img/poster.jpg" autoplay>
-    <source src="video.mp4" type="video/mp4">
-    Trình duyệt của bạn không hỗ trợ thẻ video.
-</video>
+                <video controls playsinline muted preload="auto" width="100%" autoplay loop>
+                    <source src="video.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
             </div>
         </div>
 
@@ -1337,7 +1323,7 @@
     </footer>
 
     <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
+        <span class="close-lightbox">×</span>
         <img class="lightbox-content" id="lightbox-img">
     </div>
 
