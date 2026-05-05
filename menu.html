@@ -43,18 +43,18 @@
             overflow-x: hidden;
         }
 
-        /* === NAVBAR === */
+        /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
         .navbar {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Nền trắng */
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            padding: 10px 80px;
+            padding: 15px 80px;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            min-height: 80px;
+            min-height: 100px;
         }
 
         .logo {
@@ -68,46 +68,90 @@
 
         .logo img {
             height: auto;
-            max-height: 90px;
-            max-width: 250px;
+            max-height: 120px;
+            max-width: 300px;
             object-fit: contain;
             display: block;
+        }
+
+        /* === HAMBURGER MENU CHO MOBILE === */
+        .hamburger {
+            display: none; /* Ẩn trên máy tính */
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: #ff5252; /* Màu đỏ cho nổi */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hiệu ứng chéo chữ X khi click hamburger */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
 
        .nav-links a {
             text-decoration: none;
             color: #555;
-            font-size: 14px; /* Tăng nhẹ kích thước cho dễ đọc */
+            font-size: 14px;
             font-weight: 600;
-            text-transform: capitalize; /* 👈 Đổi từ uppercase sang capitalize */
+            text-transform: capitalize;
             letter-spacing: 0.5px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #d32f2f;
+            color: #ff5252; /* Hover màu đỏ */
         }
 
-        /* Style cho nút đặt hàng/đặt bàn */
+        /* STYLE NÚT ĐẶT HÀNG TRÊN NAVBAR (Theme Đỏ - Trắng) */
         .btn-order {
-            background-color: #d32f2f;
-            color: #fff !important;
-            padding: 10px 20px;
-            border-radius: 5px;
+            background-color: #ff5252 !important; /* Nền đỏ */
+            color: #ffffff !important;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            border: 1.5px solid #ff5252;
+        }
+
+        .btn-order:hover {
+            background-color: #d32f2f !important;
+            border-color: #d32f2f;
         }
 
         .btn-reserve {
-            border: 2px solid #d32f2f;
-            color: #d32f2f !important;
-            padding: 8px 20px;
-            border-radius: 5px;
+            background-color: #ffffff !important; /* Nền trắng */
+            color: #ff5252 !important; /* Chữ đỏ */
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            border: 1.5px solid #ff5252;
+        }
+
+        .btn-reserve:hover {
+            background-color: #fff1f1 !important;
         }
 
         /* === MENU CONTENT === */
@@ -272,6 +316,7 @@
             background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat;
             color: #ffffff;
             padding: 60px 20px;
+            padding-bottom: 120px; /* Khoảng trống cho 2 nút ghim */
         }
 
         .footer-overlay {
@@ -306,6 +351,42 @@
             gap: 40px;
         }
 
+        .footer-left h3 {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .footer-left p {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        /* ĐIỀU CHỈNH CSS CHO IMPRESSUM / DATENSCHUTZERKLÄRUNG (Giống Index) */
+        .footer-links-small {
+            margin-top: 30px;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .footer-links-small a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links-small a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
         .footer-nav {
             list-style: none;
             display: grid;
@@ -319,44 +400,165 @@
             font-size: 0.9rem;
             opacity: 0.9;
         }
+        
+        .footer-nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG === */
+        .floating-action-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+            gap: 12px;
+            z-index: 9999;
+            width: auto; 
+            white-space: nowrap;
+        }
+
+        .fab-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .fab-reserve {
+            background-color: #ffffff; 
+            color: #ff5252; 
+            border: 1.5px solid #ff5252;
+        }
+
+        .fab-reserve:hover {
+            background-color: #fff1f1;
+            transform: translateY(-2px);
+        }
+
+        .fab-order {
+            background-color: #ff5252; 
+            color: #ffffff; 
+            border: 1.5px solid #ff5252;
+        }
+
+        .fab-order:hover {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
+            transform: translateY(-2px);
+        }
 
         @media (max-width: 1024px) {
             .navbar {
-                padding: 15px 30px;
+                padding: 15px 40px;
             }
 
             .logo {
-                left: 20%;
+                left: 10%;
             }
         }
 
+        /* ===== CSS CHO MOBILE & HAMBURGER MENU ===== */
         @media (max-width: 768px) {
             .navbar {
-                flex-direction: column;
-                padding: 10px 15px;
-                height: auto;
+                justify-content: space-between;
+                padding: 15px 20px;
+                min-height: 75px;
             }
-
             .logo {
                 position: relative;
-                left: auto;
+                left: 0;
                 transform: none;
-                margin-bottom: 10px;
+            }
+            .logo img {
+                max-height: 50px;
+            }
+            
+            /* Hiện nút Hamburger */
+            .hamburger {
+                display: flex;
             }
 
+            /* Thiết kế menu thả xuống */
             .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Căn giữa tất cả các thẻ li */
+                padding: 25px 0 35px 0;
+                gap: 20px; /* Tạo khoảng trống thoáng đãng */
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #f0f0f0;
+                
+                transform: translateY(-10%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease-in-out;
+                z-index: 999; 
+            }
+
+            /* Trạng thái hiển thị menu */
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                width: 100%;
+                display: flex;
+                justify-content: center; /* Căn giữa nội dung thẻ li */
             }
 
             .nav-links a {
-                font-size: 11px;
+                display: block;
+                width: 100%;
+                text-align: center; /* Căn giữa chữ */
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            /* Tối ưu kích thước 2 nút bấm trong Menu xổ xuống */
+            .nav-links .btn-order,
+            .nav-links .btn-reserve {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 85%; /* Mở rộng nút cho dễ bấm */
+                max-width: 300px; /* Giới hạn độ dài tối đa */
+                font-size: 15px !important;
+                padding: 12px 15px !important;
+                border-radius: 6px;
             }
 
             .items-grid,
             .shared-topping-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
+            .floating-action-buttons {
+                flex-direction: column;
+                width: 220px; 
+                bottom: 15px;
+                gap: 8px;
+            }
+            .fab-btn {
+                padding: 8px 12px; 
+                font-size: 13px; 
             }
         }
     </style>
@@ -369,15 +571,22 @@
             <img src="logo.png" alt="Minh Hiếu Restaurant Logo"
                 onerror="this.src='https://via.placeholder.com/150x60?text=LOGO'">
         </a>
-        <ul class="nav-links">
+        
+        <!-- Nút Hamburger Menu (Chỉ hiện trên mobile) -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Các links được đưa vào trong menu thả xuống trên mobile -->
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true"
-                    target="_blank" class="btn-reserve">Reservieren</a></li>
-            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
-                    target="_blank" class="btn-order">Bestellen</a></li>
+            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table Reservation</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
 
@@ -617,6 +826,7 @@
         </div>
     </section>
 
+    <!-- FOOTER ĐỒNG BỘ GIỐNG INDEX.HTML -->
     <footer class="footer">
         <div class="footer-overlay"></div>
         <div class="footer-container">
@@ -626,18 +836,52 @@
                     <h3>MINH HIẾU</h3>
                     <p>KURFÜRSTENSTRASSE 23, 56218 MÜLHEIM-KÄRLICH</p>
                     <p>02630 9669791</p>
-                    <p>ALLE GERICHTE AUCH ZUM MITNEHMEN!</p>
+                    <p>INFO@MINHHIEU-RESTAURANT.DE</p>
+                    <div class="footer-links-small">
+                        <a href="impressum.html">Impressum</a> / <a
+                            href="Datenschutzerklärung.html">Datenschutzerklärung</a>
+                    </div>
                 </div>
                 <div class="footer-right">
                     <ul class="footer-nav">
                         <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#kontakt">Kontakt</a></li>
+                        <li><a href="index.html#galerie">Galerie</a></li>
                         <li><a href="menu.html">Speisekarte</a></li>
-                        <li><a href="impressum.html">IMPRESSUM</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
+    <div class="floating-action-buttons">
+        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
+        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
+    </div>
+
+    <!-- SCRIPT ĐỂ XỬ LÝ MENU HAMBURGER -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Xử lý Menu Hamburger trên Mobile
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Đóng menu khi bấm vào 1 link bất kỳ
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
