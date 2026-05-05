@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minh Hiếu Restaurant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <!-- Font chữ đẹp, sang trọng -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* === RESET & CƠ BẢN === */
@@ -16,17 +16,14 @@
             box-sizing: border-box;
         }
 
-        /* ===== 🔥 FIX SCROLL WEBCAKE (CHỈ THÊM ĐOẠN NÀY) ===== */
+        /* ===== 🔥 FIX SCROLL WEBCAKE ===== */
         html,
         body {
             scroll-behavior: smooth;
             overflow-x: hidden;
             overflow-y: scroll;
-
-            -ms-overflow-style: none;
-            /* IE, Edge */
-            scrollbar-width: none;
-            /* Firefox */
+            -ms-overflow-style: none; /* IE, Edge */
+            scrollbar-width: none; /* Firefox */
         }
 
         html::-webkit-scrollbar,
@@ -34,23 +31,22 @@
             display: none;
         }
 
-        /* fix iframe Webcake */
         html,
         body {
             position: relative;
             height: auto;
         }
 
-        /* ===== BODY ===== */
+        /* ===== BODY (THEME TRẮNG - SÁNG SỦA) ===== */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #f4f4f4; /* Nền xám nhạt */
+            color: #333; /* Chữ xám đen */
         }
 
         /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
         .navbar {
-            background-color: #ffffff;
+            background-color: #ffffff; /* Nền trắng */
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -79,6 +75,35 @@
             display: block;
         }
 
+        /* === HAMBURGER MENU CHO MOBILE === */
+        .hamburger {
+            display: none; /* Ẩn trên máy tính */
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: #ff5252; /* Màu đỏ cho nổi */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hiệu ứng chéo chữ X khi click hamburger */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
         .nav-links {
             list-style: none;
             display: flex;
@@ -89,39 +114,45 @@
        .nav-links a {
             text-decoration: none;
             color: #555;
-            font-size: 14px; /* Tăng nhẹ kích thước cho dễ đọc */
+            font-size: 14px;
             font-weight: 600;
-            text-transform: capitalize; /* 👈 Đổi từ uppercase sang capitalize */
+            text-transform: capitalize;
             letter-spacing: 0.5px;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #ff5252;
+            color: #ff5252; /* Hover màu đỏ */
         }
 
-        /* STYLE THÊM CHO 2 NÚT ĐẶT HÀNG */
+        /* STYLE NÚT ĐẶT HÀNG TRÊN NAVBAR (Theme Đỏ - Trắng) */
         .btn-order {
-            background-color: #ff5252;
+            background-color: #ff5252 !important; /* Nền đỏ */
             color: #ffffff !important;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background 0.3s !important;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            border: 1.5px solid #ff5252;
         }
 
         .btn-order:hover {
             background-color: #d32f2f !important;
+            border-color: #d32f2f;
         }
 
         .btn-reserve {
-            border: 2px solid #ff5252;
-            color: #ff5252 !important;
-            padding: 8px 20px;
-            border-radius: 5px;
+            background-color: #ffffff !important; /* Nền trắng */
+            color: #ff5252 !important; /* Chữ đỏ */
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            border: 1.5px solid #ff5252;
         }
 
         .btn-reserve:hover {
-            background-color: #fff1f1;
+            background-color: #fff1f1 !important;
         }
 
         /* === HERO SECTION (ẢNH BÌA) === */
@@ -185,7 +216,7 @@
         .circle-icon {
             width: 38px;
             height: 38px;
-            background-color: #ff5252;
+            background-color: #ff5252; /* Nút đỏ */
             border-radius: 50%;
             margin: 0 20px;
             display: flex;
@@ -195,9 +226,9 @@
         }
 
         .hero-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 7.5rem;
-            font-weight: 400;
+            font-family: 'Playfair Display', serif; /* Thay đổi font chữ */
+            font-size: 5rem; /* Giảm size xíu do font này to hơn Great Vibes */
+            font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 10px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
@@ -222,7 +253,7 @@
         /* === INFO SECTION BÊN DƯỚI ẢNH BÌA === */
         .info-section {
             padding: 60px 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .info-container {
@@ -242,7 +273,8 @@
         }
 
         .info-box h3 {
-            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif; /* Font chữ tiêu đề */
+            font-size: 1.3rem;
             color: #333;
             margin-bottom: 15px;
             letter-spacing: 1px;
@@ -258,7 +290,7 @@
         /* === WELCOME SECTION & GALLERY === */
         .welcome-section {
             padding: 80px 20px 100px 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .welcome-container {
@@ -287,15 +319,15 @@
             top: 10px;
             bottom: 10px;
             width: 2px;
-            background-color: #ff5252;
+            background-color: #ff5252; /* Line đỏ */
         }
 
         .welcome-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
-            color: #ff5252;
-            line-height: 1.1;
-            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #ff5252; /* Chữ đỏ */
+            line-height: 1.2;
+            font-weight: 700;
         }
 
         .welcome-subtitle {
@@ -308,7 +340,7 @@
         }
 
         .welcome-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
             line-height: 1.8;
             margin-bottom: 20px;
@@ -317,13 +349,13 @@
 
         .btn-call {
             display: inline-block;
-            background-color: #ff5252;
+            background-color: #ff5252; /* Nút đỏ */
             color: #ffffff;
             padding: 12px 40px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4);
@@ -372,7 +404,8 @@
             width: 100%;
             padding: 100px 20px 120px 20px;
             text-align: center;
-            color: #ffffff;
+            color: #ffffff; 
+            background-color: #222; /* Khôi phục nền tối cho section video để chữ trắng nổi bật */
         }
 
         .gv-content {
@@ -383,11 +416,12 @@
         }
 
         .section-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5.5rem;
-            font-weight: 400;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
         }
 
         .section-subtitle {
@@ -466,7 +500,7 @@
         .menu-section {
             position: relative;
             padding: 100px 20px 120px 20px;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .menu-container {
@@ -485,7 +519,7 @@
             width: 100%;
             height: auto;
             display: block;
-            border: 3px solid #ff5252;
+            border: 3px solid #ff5252; /* Viền đỏ */
             padding: 3px;
             border-radius: 2px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -503,10 +537,10 @@
         }
 
         .menu-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
-            color: #ff5252;
-            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            color: #ff5252; /* Chữ đỏ */
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
@@ -548,13 +582,13 @@
 
         .btn-red {
             display: inline-block;
-            background-color: #ff5252;
+            background-color: #ff5252; /* Nút đỏ */
             color: #ffffff;
             padding: 12px 35px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             width: 200px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(255, 82, 82, 0.3);
@@ -597,11 +631,11 @@
         }
 
         .red-script-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
-            color: #ff5252;
-            font-weight: 400;
-            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #ff5252; /* Chữ đỏ */
+            font-weight: 700;
+            margin-bottom: 10px;
             line-height: 1;
         }
 
@@ -635,7 +669,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 1px solid #ff5252;
+            border: 1px solid #ff5252; /* Viền đỏ */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -678,6 +712,7 @@
             background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat;
             color: #ffffff;
             padding: 60px 20px;
+            padding-bottom: 120px;
         }
 
         .footer-overlay {
@@ -686,7 +721,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(220, 53, 69, 0.85);
+            background-color: rgba(220, 53, 69, 0.85); /* Lớp phủ đỏ */
             z-index: 1;
         }
 
@@ -727,14 +762,18 @@
 
         .footer-links-small {
             margin-top: 30px;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
         }
 
         .footer-links-small a {
             color: #ffffff;
             text-decoration: none;
-            opacity: 0.8;
+            opacity: 0.75;
             transition: opacity 0.3s;
         }
 
@@ -763,11 +802,11 @@
             text-decoration: underline;
         }
 
-        /* === CSS CHO LIGHTBOX (PHÓNG TO ẢNH) === */
+        /* === CSS CHO LIGHTBOX === */
         .lightbox {
             display: none;
             position: fixed;
-            z-index: 9999;
+            z-index: 99999;
             left: 0;
             top: 0;
             width: 100%;
@@ -794,7 +833,6 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
-
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -816,14 +854,64 @@
             color: #ff5252;
         }
 
+        /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG === */
+        .floating-action-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+            gap: 12px;
+            z-index: 9999;
+            width: auto; 
+            white-space: nowrap;
+        }
+
+        .fab-btn {
+            display: inline-block;
+            text-align: center;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .fab-reserve {
+            background-color: #ffffff; 
+            color: #ff5252; 
+            border: 1.5px solid #ff5252;
+        }
+
+        .fab-reserve:hover {
+            background-color: #fff1f1;
+            transform: translateY(-2px);
+        }
+
+        .fab-order {
+            background-color: #ff5252; 
+            color: #ffffff; 
+            border: 1.5px solid #ff5252;
+        }
+
+        .fab-order:hover {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
+            transform: translateY(-2px);
+        }
+
         /* =========================================
-           TỐI ƯU RESPONSIVE (MOBILE & TABLET)
+           TỐI ƯU RESPONSIVE
            ========================================= */
         @media (max-width: 1024px) {
             .navbar {
                 padding: 15px 40px;
             }
-
             .logo {
                 left: 10%;
             }
@@ -831,203 +919,221 @@
 
         @media (max-width: 900px) {
             .hero-title {
-                font-size: 5.5rem;
+                font-size: 4.5rem;
             }
-
             .top-decoration {
                 width: 80%;
             }
-
             .welcome-container {
                 flex-direction: column;
             }
-
             .welcome-text {
                 margin-bottom: 40px;
             }
-
             .title-wrapper::before {
                 display: none;
             }
-
             .menu-container {
                 flex-direction: column;
                 gap: 40px;
             }
-
             .menu-image-col,
             .menu-text-col {
                 width: 100%;
                 max-width: 500px;
             }
-
             .kontakt-container {
                 flex-direction: column;
             }
-
             .kontakt-info {
                 max-width: 100%;
             }
-
             .kontakt-map iframe {
                 min-height: 350px;
             }
         }
 
+        /* ===== CSS CHO MOBILE & HAMBURGER MENU ===== */
         @media (max-width: 768px) {
-
-            /* Navbar Mobile */
             .navbar {
-                flex-direction: row;
                 justify-content: space-between;
-                padding: 10px 15px;
-                min-height: auto;
+                padding: 15px 20px;
+                min-height: 75px;
             }
-
             .logo {
                 position: relative;
-                left: auto;
+                left: 0;
                 transform: none;
-                flex-shrink: 0;
             }
-
             .logo img {
-                max-height: 45px;
+                max-height: 50px;
+            }
+            
+            /* Hiện nút Hamburger */
+            .hamburger {
+                display: flex;
             }
 
+            /* Thiết kế menu thả xuống */
             .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
                 display: flex;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: flex-end;
-                gap: 12px;
-                padding: 0;
-                overflow-x: auto;
-                align-items: center;
+                flex-direction: column;
+                align-items: center; /* Căn giữa tất cả các thẻ li */
+                padding: 25px 0 35px 0;
+                gap: 20px; /* Tạo khoảng trống thoáng đãng */
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                border-top: 1px solid #f0f0f0;
+                
+                transform: translateY(-10%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease-in-out;
+                z-index: 999; 
+            }
+
+            /* Trạng thái hiển thị menu */
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                width: 100%;
+                display: flex;
+                justify-content: center; /* Căn giữa nội dung thẻ li */
             }
 
             .nav-links a {
-                font-size: 11px;
-                white-space: nowrap;
+                display: block;
+                width: 100%;
+                text-align: center; /* Căn giữa chữ */
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            /* Tối ưu kích thước 2 nút bấm trong Menu xổ xuống */
+            .nav-links .btn-order,
+            .nav-links .btn-reserve {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 85%; /* Mở rộng nút cho dễ bấm */
+                max-width: 300px; /* Giới hạn độ dài tối đa */
+                font-size: 15px !important;
+                padding: 12px 15px !important;
+                border-radius: 6px;
             }
 
             .hero {
                 height: 70vh;
                 min-height: 400px;
             }
-
             .top-decoration {
                 width: 90%;
                 margin-bottom: 15px;
             }
-
             .circle-icon {
                 width: 30px;
                 height: 30px;
                 margin: 0 10px;
             }
-
             .circle-icon svg {
                 width: 14px;
                 height: 14px;
             }
-
             .hero-title {
-                font-size: 4rem;
+                font-size: 3.5rem;
                 line-height: 1.2;
                 margin-bottom: 10px;
             }
-
             .hero-subtitle {
                 font-size: 0.7rem;
                 letter-spacing: 4px;
                 margin-bottom: 20px;
             }
-
             .bottom-line {
                 width: 150px;
             }
-
             .info-container {
                 gap: 20px;
             }
-
             .info-box {
                 padding: 10px;
                 border-bottom: 1px dashed #ddd;
             }
-
             .info-box:last-child {
                 border-bottom: none;
             }
-
-            .section-title {
-                font-size: 4rem;
+            .section-title,
+            .red-script-title {
+                font-size: 3.5rem;
             }
-
             .gv-gallery {
                 justify-content: flex-start;
                 overflow-x: auto;
                 padding-bottom: 15px;
                 scroll-snap-type: x mandatory;
             }
-
             .gv-gallery img {
                 width: 80%;
                 flex-shrink: 0;
                 scroll-snap-align: center;
             }
-
             .gv-video-wrapper {
                 width: 95%;
+            }
+            
+            /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
+            .floating-action-buttons {
+                flex-direction: column;
+                width: 220px; 
+                bottom: 15px;
+                gap: 8px;
+            }
+            .fab-btn {
+                padding: 8px 12px; 
+                font-size: 13px; 
             }
         }
 
         @media (max-width: 600px) {
             .welcome-title {
-                font-size: 4rem;
+                font-size: 3.5rem;
             }
-
             .welcome-gallery {
                 grid-template-columns: 1fr;
                 grid-template-rows: 300px 200px 200px;
             }
-
             .item-large {
                 grid-column: 1 / 2;
                 grid-row: 1 / 2;
             }
-
             .menu-title {
-                font-size: 4rem;
+                font-size: 3.5rem;
             }
-
             .menu-desc {
                 font-size: 0.85rem;
             }
-
             .menu-hours {
                 font-size: 0.8rem;
             }
-
-            .red-script-title {
-                font-size: 4rem;
-            }
-
             .dark-subtitle {
                 font-size: 0.75rem;
                 letter-spacing: 4px;
             }
-
             .hours-list p {
                 font-size: 1rem;
             }
-
             .footer-content {
                 flex-direction: column;
                 gap: 30px;
             }
-
             .footer-nav {
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -1042,15 +1148,22 @@
         <a href="#home" class="logo">
             <img src="logo.png" alt="Minh Hiếu Restaurant Logo">
         </a>
-        <ul class="nav-links">
+        
+        <!-- Nút Hamburger Menu (Chỉ hiện trên mobile) -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Các links được đưa vào trong menu thả xuống trên mobile -->
+        <ul class="nav-links" id="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
             <li><a href="#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true"
-                    target="_blank" class="btn-reserve">Reservieren</a></li>
-            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
-                    target="_blank" class="btn-order">Bestellen</a></li>
+            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table Reservation</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
 
@@ -1065,9 +1178,8 @@
             <div class="top-decoration">
                 <span class="line"></span>
                 <div class="circle-icon">
-                    <svg fill="white" viewBox="0 0 24 24" width="18px" height="18px">
-                        <path
-                            d="M12,4.46C12,4.46 9.5,6.5 6,6.5C4.24,6.5 2.59,5.77 1.25,4.71C0.84,6.72 2.05,9.75 4,11.5C2.05,13.25 0.84,16.28 1.25,18.29C2.59,17.23 4.24,16.5 6,16.5C9.5,16.5 12,18.54 12,18.54C12,18.54 15.5,14 22.5,14L22.5,9C15.5,9 12,4.46 12,4.46M19,10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 19,13.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 19,10.5Z" />
+                    <svg fill="#ffffff" viewBox="0 0 24 24" width="18px" height="18px">
+                        <path d="M12,4.46C12,4.46 9.5,6.5 6,6.5C4.24,6.5 2.59,5.77 1.25,4.71C0.84,6.72 2.05,9.75 4,11.5C2.05,13.25 0.84,16.28 1.25,18.29C2.59,17.23 4.24,16.5 6,16.5C9.5,16.5 12,18.54 12,18.54C12,18.54 15.5,14 22.5,14L22.5,9C15.5,9 12,4.46 12,4.46M19,10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 19,13.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 19,10.5Z" />
                     </svg>
                 </div>
                 <span class="line"></span>
@@ -1088,15 +1200,15 @@
     <section class="info-section">
         <div class="info-container">
             <div class="info-box">
-                <h3>Địa chỉ</h3>
+                <h3>Adresse</h3>
                 <p>Kurfürstenstraße 23, 56218 Mülheim-Kärlich</p>
             </div>
             <div class="info-box">
-                <h3>Điện thoại</h3>
+                <h3>Telefon</h3>
                 <p>02630 9669791</p>
             </div>
             <div class="info-box">
-                <h3>Thời gian mở cửa</h3>
+                <h3>Öffnungszeiten</h3>
                 <p>Di. - Do. 11:00 - 21:00<br>Fr. - So. 11:00 - 22:00</p>
             </div>
         </div>
@@ -1110,7 +1222,7 @@
                 </div>
                 <h4 class="welcome-subtitle">IM MINH HIẾU</h4>
                 <p class="welcome-desc">Vielfältige Sushi-Varianten bilden den Rahmen für eine ideenreiche asiatische
-                    Küche. Hier finden không chỉ Sushi-Fans ihr Lieblingsgericht!</p>
+                    Küche. Hier finden nicht nur Sushi-Fans ihr Lieblingsgericht!</p>
                 <p class="welcome-desc">Gerne können Sie einen Tisch reservieren oder einfach vorbeikommen – wir freuen
                     uns auf Sie.</p>
                 <a href="tel:026309669791" class="btn-call">Anrufen</a>
@@ -1164,7 +1276,7 @@
             <div class="gv-video-wrapper">
                 <video controls playsinline muted preload="auto" width="100%" autoplay loop>
                     <source src="video.mp4" type="video/mp4">
-                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                    Ihr Browser unterstützt das Video-Tag nicht.
                 </video>
             </div>
         </div>
@@ -1204,7 +1316,7 @@
                     <br>
                     <p>Montag ist Ruhetag</p>
                     <br>
-                    <p style="color: #888; font-size: 0.8rem;">(Feiertage auf Anfrage)</p>
+                    <p style="color: #666; font-size: 0.8rem;">(Feiertage auf Anfrage)</p>
                 </div>
 
                 <div class="menu-actions">
@@ -1216,7 +1328,7 @@
 
         <div class="wave bottom-wave">
             <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-                <path d="M0,60 C240,0 480,0 720,30 C960,60 1200,60 1440,30 L1440,60 L0,60 Z" fill="#333333"></path>
+                <path d="M0,60 C240,0 480,0 720,30 C960,60 1200,60 1440,30 L1440,60 L0,60 Z" fill="#ffffff"></path>
             </svg>
         </div>
     </section>
@@ -1306,8 +1418,8 @@
                     <p>02630 9669791</p>
                     <p>INFO@MINHHIEU-RESTAURANT.DE</p>
                     <div class="footer-links-small">
-                        <a href="impressum.html">IMPRESSUM</a> / <a
-                            href="Datenschutzerklärung.html">DATENSCHUTZERKLÄRUNG</a>
+                        <a href="impressum.html">Impressum</a> / <a
+                            href="Datenschutzerklärung.html">Datenschutzerklärung</a>
                     </div>
                 </div>
                 <div class="footer-right">
@@ -1327,8 +1439,15 @@
         <img class="lightbox-content" id="lightbox-img">
     </div>
 
+    <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
+    <div class="floating-action-buttons">
+        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
+        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Xử lý Phóng to ảnh (Lightbox)
             const triggers = document.querySelectorAll('.lightbox-trigger');
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
@@ -1349,6 +1468,24 @@
                 if (e.target !== lightboxImg) {
                     lightbox.classList.remove('active');
                 }
+            });
+
+            // Xử lý Menu Hamburger trên Mobile
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Đóng menu khi bấm vào 1 link bất kỳ
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
             });
         });
     </script>
