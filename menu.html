@@ -45,7 +45,8 @@
 
         /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
         .navbar {
-            background-color: #ffffff; /* Nền trắng */
+            background-color: #ffffff;
+            /* Nền trắng */
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -76,7 +77,8 @@
 
         /* === HAMBURGER MENU CHO MOBILE === */
         .hamburger {
-            display: none; /* Ẩn trên máy tính */
+            display: none;
+            /* Ẩn trên máy tính */
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
@@ -87,7 +89,8 @@
         .hamburger span {
             width: 28px;
             height: 3px;
-            background-color: #ff5252; /* Màu đỏ cho nổi */
+            background-color: #ff5252;
+            /* Màu đỏ cho nổi */
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -96,9 +99,11 @@
         .hamburger.active span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
+
         .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
+
         .hamburger.active span:nth-child(3) {
             transform: translateY(-9px) rotate(-45deg);
         }
@@ -110,7 +115,7 @@
             align-items: center;
         }
 
-       .nav-links a {
+        .nav-links a {
             text-decoration: none;
             color: #555;
             font-size: 14px;
@@ -121,12 +126,14 @@
         }
 
         .nav-links a:hover {
-            color: #ff5252; /* Hover màu đỏ */
+            color: #ff5252;
+            /* Hover màu đỏ */
         }
 
         /* STYLE NÚT ĐẶT HÀNG TRÊN NAVBAR (Theme Đỏ - Trắng) */
         .btn-order {
-            background-color: #ff5252 !important; /* Nền đỏ */
+            background-color: #ff5252 !important;
+            /* Nền đỏ */
             color: #ffffff !important;
             padding: 8px 18px;
             border-radius: 4px;
@@ -141,8 +148,10 @@
         }
 
         .btn-reserve {
-            background-color: #ffffff !important; /* Nền trắng */
-            color: #ff5252 !important; /* Chữ đỏ */
+            background-color: #ffffff !important;
+            /* Nền trắng */
+            color: #ff5252 !important;
+            /* Chữ đỏ */
             padding: 8px 18px;
             border-radius: 4px;
             font-weight: 600 !important;
@@ -316,7 +325,8 @@
             background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat;
             color: #ffffff;
             padding: 60px 20px;
-            padding-bottom: 120px; /* Khoảng trống cho 2 nút ghim */
+            padding-bottom: 120px;
+            /* Khoảng trống cho 2 nút ghim */
         }
 
         .footer-overlay {
@@ -400,7 +410,7 @@
             font-size: 0.9rem;
             opacity: 0.9;
         }
-        
+
         .footer-nav a:hover {
             opacity: 1;
             text-decoration: underline;
@@ -408,18 +418,19 @@
 
         /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG === */
         .floating-action-buttons {
-    position: fixed;
-    bottom: 80px; /* tăng lên cho desktop */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-    z-index: 9999;
-    width: auto;
-    white-space: nowrap;
-}
+            position: fixed;
+            bottom: 80px;
+            /* tăng lên cho desktop */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 12px;
+            z-index: 9999;
+            width: auto;
+            white-space: nowrap;
+        }
 
         .fab-btn {
             display: inline-block;
@@ -428,15 +439,15 @@
             font-size: 14px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 30px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             font-family: 'Montserrat', Arial, sans-serif;
             transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .fab-reserve {
-            background-color: #ffffff; 
-            color: #ff5252; 
+            background-color: #ffffff;
+            color: #ff5252;
             border: 1.5px solid #ff5252;
         }
 
@@ -446,8 +457,8 @@
         }
 
         .fab-order {
-            background-color: #ff5252; 
-            color: #ffffff; 
+            background-color: #ff5252;
+            color: #ffffff;
             border: 1.5px solid #ff5252;
         }
 
@@ -474,15 +485,17 @@
                 padding: 15px 20px;
                 min-height: 75px;
             }
+
             .logo {
                 position: relative;
                 left: 0;
                 transform: none;
             }
+
             .logo img {
                 max-height: 50px;
             }
-            
+
             /* Hiện nút Hamburger */
             .hamburger {
                 display: flex;
@@ -497,17 +510,19 @@
                 background-color: #ffffff;
                 display: flex;
                 flex-direction: column;
-                align-items: center; /* Căn giữa tất cả các thẻ li */
+                align-items: center;
+                /* Căn giữa tất cả các thẻ li */
                 padding: 25px 0 35px 0;
-                gap: 20px; /* Tạo khoảng trống thoáng đãng */
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                gap: 20px;
+                /* Tạo khoảng trống thoáng đãng */
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
                 border-top: 1px solid #f0f0f0;
-                
+
                 transform: translateY(-10%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease-in-out;
-                z-index: 999; 
+                z-index: 999;
             }
 
             /* Trạng thái hiển thị menu */
@@ -520,13 +535,15 @@
             .nav-links li {
                 width: 100%;
                 display: flex;
-                justify-content: center; /* Căn giữa nội dung thẻ li */
+                justify-content: center;
+                /* Căn giữa nội dung thẻ li */
             }
 
             .nav-links a {
                 display: block;
                 width: 100%;
-                text-align: center; /* Căn giữa chữ */
+                text-align: center;
+                /* Căn giữa chữ */
                 font-size: 16px;
                 padding: 10px;
             }
@@ -537,8 +554,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 85%; /* Mở rộng nút cho dễ bấm */
-                max-width: 300px; /* Giới hạn độ dài tối đa */
+                width: 85%;
+                /* Mở rộng nút cho dễ bấm */
+                max-width: 300px;
+                /* Giới hạn độ dài tối đa */
                 font-size: 15px !important;
                 padding: 12px 15px !important;
                 border-radius: 6px;
@@ -552,13 +571,14 @@
             /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
             .floating-action-buttons {
                 flex-direction: column;
-                width: 220px; 
+                width: 220px;
                 bottom: 15px;
                 gap: 8px;
             }
+
             .fab-btn {
-                padding: 8px 12px; 
-                font-size: 13px; 
+                padding: 8px 12px;
+                font-size: 13px;
             }
         }
     </style>
@@ -571,7 +591,7 @@
             <img src="logo.png" alt="Minh Hiếu Restaurant Logo"
                 onerror="this.src='https://via.placeholder.com/150x60?text=LOGO'">
         </a>
-        
+
         <!-- Nút Hamburger Menu (Chỉ hiện trên mobile) -->
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -585,8 +605,10 @@
             <li><a href="index.html#kontakt">Kontakt</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table Reservation</a></li>
-            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
+            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table
+                    Reservation</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
+                    target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
 
@@ -856,8 +878,10 @@
 
     <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
     <div class="floating-action-buttons">
-        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
-        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
+        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table
+            Reservation</a>
+        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
+            target="_blank" class="fab-btn fab-order">See MENU & Order</a>
     </div>
 
     <!-- SCRIPT ĐỂ XỬ LÝ MENU HAMBURGER -->
