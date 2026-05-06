@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speisekarte - Minh Hiếu Restaurant</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* === RESET & CƠ BẢN === */
@@ -364,7 +361,6 @@
             opacity: 0.9;
         }
 
-        /* ĐIỀU CHỈNH CSS CHO IMPRESSUM / DATENSCHUTZERKLÄRUNG (Giống Index) */
         .footer-links-small {
             margin-top: 30px;
             font-size: 11px;
@@ -406,55 +402,55 @@
             text-decoration: underline;
         }
 
-        /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG === */
+        /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG (Đã thêm !important chống đè code Webcake) === */
         .floating-action-buttons {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
+            position: fixed !important;
+            bottom: 20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            display: flex !important;
             flex-direction: row; 
             justify-content: center;
             gap: 12px;
-            z-index: 9999;
+            z-index: 2147483647 !important; /* Đẩy lớp phủ lên cao nhất */
             width: auto; 
             white-space: nowrap;
         }
 
         .fab-btn {
-            display: inline-block;
-            text-align: center;
-            padding: 10px 24px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 30px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-            font-family: 'Montserrat', Arial, sans-serif;
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            display: inline-block !important;
+            text-align: center !important;
+            padding: 10px 24px !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            border-radius: 30px !important; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important; 
+            font-family: 'Montserrat', Arial, sans-serif !important;
+            transition: transform 0.2s ease, background-color 0.2s ease !important;
         }
 
         .fab-reserve {
-            background-color: #ffffff; 
-            color: #ff5252; 
-            border: 1.5px solid #ff5252;
+            background-color: #ffffff !important; 
+            color: #ff5252 !important; 
+            border: 1.5px solid #ff5252 !important;
         }
 
         .fab-reserve:hover {
-            background-color: #fff1f1;
-            transform: translateY(-2px);
+            background-color: #fff1f1 !important;
+            transform: translateY(-2px) !important;
         }
 
         .fab-order {
-            background-color: #ff5252; 
-            color: #ffffff; 
-            border: 1.5px solid #ff5252;
+            background-color: #ff5252 !important; 
+            color: #ffffff !important; 
+            border: 1.5px solid #ff5252 !important;
         }
 
         .fab-order:hover {
-            background-color: #d32f2f;
-            border-color: #d32f2f;
-            transform: translateY(-2px);
+            background-color: #d32f2f !important;
+            border-color: #d32f2f !important;
+            transform: translateY(-2px) !important;
         }
 
         @media (max-width: 1024px) {
@@ -551,14 +547,14 @@
 
             /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
             .floating-action-buttons {
-                flex-direction: column;
-                width: 220px; 
-                bottom: 15px;
-                gap: 8px;
+                flex-direction: column !important;
+                width: 220px !important; 
+                bottom: 15px !important;
+                gap: 8px !important;
             }
             .fab-btn {
-                padding: 8px 12px; 
-                font-size: 13px; 
+                padding: 8px 12px !important; 
+                font-size: 13px !important; 
             }
         }
     </style>
@@ -585,7 +581,7 @@
             <li><a href="index.html#kontakt">Kontakt</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table Reservation</a></li>
+            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true" target="_blank" class="btn-reserve">Table Reservation</a></li>
             <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
@@ -826,7 +822,7 @@
         </div>
     </section>
 
-    <!-- FOOTER ĐỒNG BỘ GIỐNG INDEX.HTML -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-overlay"></div>
         <div class="footer-container">
@@ -856,30 +852,40 @@
 
     <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
     <div class="floating-action-buttons">
-        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
+        <a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
         <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
     </div>
 
-    <!-- SCRIPT ĐỂ XỬ LÝ MENU HAMBURGER -->
+    <!-- SCRIPT ĐỂ XỬ LÝ LỖI WEBCAKE VÀ HAMBURGER MENU -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Xử lý Menu Hamburger trên Mobile
+            
+            // 1. FIX LỖI WEBCAKE: Tách 2 nút ghim ra khỏi khung HTML của Webcake và đưa thẳng ra màn hình gốc
+            // Bước này rất quan trọng để position: fixed bám vào thiết bị thay vì bám vào đáy của Section
+            const fab = document.querySelector('.floating-action-buttons');
+            if (fab && fab.parentNode !== document.body) {
+                document.body.appendChild(fab);
+            }
+
+            // 2. Xử lý Menu Hamburger trên Mobile
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('nav-links');
             const navItems = document.querySelectorAll('.nav-links a');
 
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Đóng menu khi bấm vào 1 link bất kỳ
-            navItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navLinks.classList.remove('active');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
                 });
-            });
+
+                // Đóng menu khi bấm vào 1 link bất kỳ
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
         });
     </script>
 </body>
