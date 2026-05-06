@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speisekarte - Minh Hiếu Restaurant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
 
     <style>
         /* === RESET & CƠ BẢN === */
@@ -42,7 +44,7 @@
 
         /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
         .navbar {
-            background-color: #ffffff; /* Nền trắng */
+            background-color: #ffffff;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -73,7 +75,7 @@
 
         /* === HAMBURGER MENU CHO MOBILE === */
         .hamburger {
-            display: none; /* Ẩn trên máy tính */
+            display: none;
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
@@ -84,12 +86,11 @@
         .hamburger span {
             width: 28px;
             height: 3px;
-            background-color: #ff5252; /* Màu đỏ cho nổi */
+            background-color: #ff5252;
             border-radius: 2px;
             transition: all 0.3s ease;
         }
 
-        /* Hiệu ứng chéo chữ X khi click hamburger */
         .hamburger.active span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -118,37 +119,7 @@
         }
 
         .nav-links a:hover {
-            color: #ff5252; /* Hover màu đỏ */
-        }
-
-        /* STYLE NÚT ĐẶT HÀNG TRÊN NAVBAR (Theme Đỏ - Trắng) */
-        .btn-order {
-            background-color: #ff5252 !important; /* Nền đỏ */
-            color: #ffffff !important;
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-weight: 600 !important;
-            transition: all 0.3s ease !important;
-            border: 1.5px solid #ff5252;
-        }
-
-        .btn-order:hover {
-            background-color: #d32f2f !important;
-            border-color: #d32f2f;
-        }
-
-        .btn-reserve {
-            background-color: #ffffff !important; /* Nền trắng */
-            color: #ff5252 !important; /* Chữ đỏ */
-            padding: 8px 18px;
-            border-radius: 4px;
-            font-weight: 600 !important;
-            transition: all 0.3s ease !important;
-            border: 1.5px solid #ff5252;
-        }
-
-        .btn-reserve:hover {
-            background-color: #fff1f1 !important;
+            color: #ff5252;
         }
 
         /* === MENU CONTENT === */
@@ -313,7 +284,7 @@
             background: url('https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=1925&auto=format&fit=crop') center/cover no-repeat;
             color: #ffffff;
             padding: 60px 20px;
-            padding-bottom: 120px; /* Khoảng trống cho 2 nút ghim */
+            padding-bottom: 150px; /* Đảm bảo đủ khoảng trống cho nút */
         }
 
         .footer-overlay {
@@ -402,17 +373,19 @@
             text-decoration: underline;
         }
 
-        /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG (Đã thêm !important chống đè code Webcake) === */
+        /* =========================================
+           🔥 CSS CHO 2 NÚT GHIM DƯỚI CÙNG 🔥
+           ========================================= */
         .floating-action-buttons {
             position: fixed !important;
-            bottom: 20px !important;
+            bottom: 90px !important; /* ĐẨY LÊN 90PX TRÊN MÁY TÍNH ĐỂ KHÔNG BỊ KHUẤT */
             left: 50% !important;
             transform: translateX(-50%) !important;
             display: flex !important;
             flex-direction: row; 
             justify-content: center;
             gap: 12px;
-            z-index: 2147483647 !important; /* Đẩy lớp phủ lên cao nhất */
+            z-index: 2147483647 !important;
             width: auto; 
             white-space: nowrap;
         }
@@ -420,12 +393,12 @@
         .fab-btn {
             display: inline-block !important;
             text-align: center !important;
-            padding: 10px 24px !important;
+            padding: 12px 24px !important;
             font-size: 14px !important;
             font-weight: 600 !important;
             text-decoration: none !important;
             border-radius: 30px !important; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important; 
             font-family: 'Montserrat', Arial, sans-serif !important;
             transition: transform 0.2s ease, background-color 0.2s ease !important;
         }
@@ -438,7 +411,7 @@
 
         .fab-reserve:hover {
             background-color: #fff1f1 !important;
-            transform: translateY(-2px) !important;
+            transform: translateY(-3px) !important;
         }
 
         .fab-order {
@@ -450,17 +423,12 @@
         .fab-order:hover {
             background-color: #d32f2f !important;
             border-color: #d32f2f !important;
-            transform: translateY(-2px) !important;
+            transform: translateY(-3px) !important;
         }
 
         @media (max-width: 1024px) {
-            .navbar {
-                padding: 15px 40px;
-            }
-
-            .logo {
-                left: 10%;
-            }
+            .navbar { padding: 15px 40px; }
+            .logo { left: 10%; }
         }
 
         /* ===== CSS CHO MOBILE & HAMBURGER MENU ===== */
@@ -475,16 +443,10 @@
                 left: 0;
                 transform: none;
             }
-            .logo img {
-                max-height: 50px;
-            }
+            .logo img { max-height: 50px; }
             
-            /* Hiện nút Hamburger */
-            .hamburger {
-                display: flex;
-            }
+            .hamburger { display: flex; }
 
-            /* Thiết kế menu thả xuống */
             .nav-links {
                 position: absolute;
                 top: 100%;
@@ -493,12 +455,11 @@
                 background-color: #ffffff;
                 display: flex;
                 flex-direction: column;
-                align-items: center; /* Căn giữa tất cả các thẻ li */
+                align-items: center;
                 padding: 25px 0 35px 0;
-                gap: 20px; /* Tạo khoảng trống thoáng đãng */
+                gap: 20px;
                 box-shadow: 0 10px 15px rgba(0,0,0,0.1);
                 border-top: 1px solid #f0f0f0;
-                
                 transform: translateY(-10%);
                 opacity: 0;
                 visibility: hidden;
@@ -506,55 +467,28 @@
                 z-index: 999; 
             }
 
-            /* Trạng thái hiển thị menu */
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
 
-            .nav-links li {
-                width: 100%;
-                display: flex;
-                justify-content: center; /* Căn giữa nội dung thẻ li */
-            }
+            .nav-links li { width: 100%; display: flex; justify-content: center; }
+            .nav-links a { display: block; width: 100%; text-align: center; font-size: 16px; padding: 10px; }
 
-            .nav-links a {
-                display: block;
-                width: 100%;
-                text-align: center; /* Căn giữa chữ */
-                font-size: 16px;
-                padding: 10px;
-            }
+            .items-grid, .shared-topping-grid { grid-template-columns: 1fr; }
 
-            /* Tối ưu kích thước 2 nút bấm trong Menu xổ xuống */
-            .nav-links .btn-order,
-            .nav-links .btn-reserve {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 85%; /* Mở rộng nút cho dễ bấm */
-                max-width: 300px; /* Giới hạn độ dài tối đa */
-                font-size: 15px !important;
-                padding: 12px 15px !important;
-                border-radius: 6px;
-            }
-
-            .items-grid,
-            .shared-topping-grid {
-                grid-template-columns: 1fr;
-            }
-
-            /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
+            /* GIỮ NGUYÊN 100PX TRÊN MOBILE NHƯ YÊU CẦU */
             .floating-action-buttons {
                 flex-direction: column !important;
-                width: 220px !important; 
-                bottom: 15px !important;
-                gap: 8px !important;
+                width: 250px !important; 
+                bottom: 100px !important; 
+                gap: 10px !important;
             }
             .fab-btn {
-                padding: 8px 12px !important; 
-                font-size: 13px !important; 
+                padding: 12px 15px !important; 
+                font-size: 14px !important; 
+                width: 100% !important;
             }
         }
     </style>
@@ -568,21 +502,17 @@
                 onerror="this.src='https://via.placeholder.com/150x60?text=LOGO'">
         </a>
         
-        <!-- Nút Hamburger Menu (Chỉ hiện trên mobile) -->
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
 
-        <!-- Các links được đưa vào trong menu thả xuống trên mobile -->
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html#home">Home</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
             <li><a href="index.html#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true" target="_blank" class="btn-reserve">Table Reservation</a></li>
-            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
 
@@ -852,7 +782,7 @@
 
     <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
     <div class="floating-action-buttons">
-        <a href="https://www.foodbooking-partner.de/ordering/restaurant/menu?restaurant_uid=663ff341-5733-46d6-8773-80bd54aa63c2&client_is_mobile=true" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
+        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
         <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
     </div>
 
@@ -861,7 +791,6 @@
         document.addEventListener("DOMContentLoaded", function () {
             
             // 1. FIX LỖI WEBCAKE: Tách 2 nút ghim ra khỏi khung HTML của Webcake và đưa thẳng ra màn hình gốc
-            // Bước này rất quan trọng để position: fixed bám vào thiết bị thay vì bám vào đáy của Section
             const fab = document.querySelector('.floating-action-buttons');
             if (fab && fab.parentNode !== document.body) {
                 document.body.appendChild(fab);
