@@ -1090,29 +1090,16 @@
             }
             
             /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
-       @media (max-width: 768px) {
-            /* ... các đoạn code khác giữ nguyên ... */
-
-            /* NÚT GHIM TRÊN MOBILE - XẾP DỌC VÀ ĐẨY LÊN CAO */
             .floating-action-buttons {
-                flex-direction: column !important; /* Quay lại xếp dọc */
-                width: 250px !important; /* Giới hạn độ rộng nút cho đẹp */
-                bottom: 120px !important; /* Đẩy lên cao 120px để không bị cấn */
-                gap: 10px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
+                flex-direction: column;
+                width: 220px; 
+                bottom: 35px;
+                gap: 8px;
             }
-
-            .fab-btn { 
-                width: 100% !important;
-                padding: 12px 15px !important; 
-                font-size: 14px !important; 
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                border-radius: 30px !important;
+            .fab-btn {
+                padding: 8px 12px; 
+                font-size: 13px; 
             }
-        }
         }
 
         @media (max-width: 600px) {
