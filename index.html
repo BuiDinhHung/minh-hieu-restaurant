@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minh Hiếu Restaurant</title>
     <!-- Font chữ đẹp, sang trọng -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* === RESET & CƠ BẢN === */
@@ -24,10 +22,8 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
             overflow-y: scroll;
-            -ms-overflow-style: none;
-            /* IE, Edge */
-            scrollbar-width: none;
-            /* Firefox */
+            -ms-overflow-style: none; /* IE, Edge */
+            scrollbar-width: none; /* Firefox */
         }
 
         html::-webkit-scrollbar,
@@ -44,16 +40,13 @@
         /* ===== BODY (THEME TRẮNG - SÁNG SỦA) ===== */
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-            /* Nền xám nhạt */
-            color: #333;
-            /* Chữ xám đen */
+            background-color: #f4f4f4; /* Nền xám nhạt */
+            color: #333; /* Chữ xám đen */
         }
 
         /* === NAVBAR TRÊN MÁY TÍNH (PC) === */
         .navbar {
-            background-color: #ffffff;
-            /* Nền trắng */
+            background-color: #ffffff; /* Nền trắng */
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -84,8 +77,7 @@
 
         /* === HAMBURGER MENU CHO MOBILE === */
         .hamburger {
-            display: none;
-            /* Ẩn trên máy tính */
+            display: none; /* Ẩn trên máy tính */
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
@@ -96,8 +88,7 @@
         .hamburger span {
             width: 28px;
             height: 3px;
-            background-color: #ff5252;
-            /* Màu đỏ cho nổi */
+            background-color: #ff5252; /* Màu đỏ cho nổi */
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -106,11 +97,9 @@
         .hamburger.active span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
-
         .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
-
         .hamburger.active span:nth-child(3) {
             transform: translateY(-9px) rotate(-45deg);
         }
@@ -122,7 +111,7 @@
             align-items: center;
         }
 
-        .nav-links a {
+       .nav-links a {
             text-decoration: none;
             color: #555;
             font-size: 14px;
@@ -133,14 +122,12 @@
         }
 
         .nav-links a:hover {
-            color: #ff5252;
-            /* Hover màu đỏ */
+            color: #ff5252; /* Hover màu đỏ */
         }
 
         /* STYLE NÚT ĐẶT HÀNG TRÊN NAVBAR (Theme Đỏ - Trắng) */
         .btn-order {
-            background-color: #ff5252 !important;
-            /* Nền đỏ */
+            background-color: #ff5252 !important; /* Nền đỏ */
             color: #ffffff !important;
             padding: 8px 18px;
             border-radius: 4px;
@@ -155,10 +142,8 @@
         }
 
         .btn-reserve {
-            background-color: #ffffff !important;
-            /* Nền trắng */
-            color: #ff5252 !important;
-            /* Chữ đỏ */
+            background-color: #ffffff !important; /* Nền trắng */
+            color: #ff5252 !important; /* Chữ đỏ */
             padding: 8px 18px;
             border-radius: 4px;
             font-weight: 600 !important;
@@ -231,8 +216,7 @@
         .circle-icon {
             width: 38px;
             height: 38px;
-            background-color: #ff5252;
-            /* Nút đỏ */
+            background-color: #ff5252; /* Nút đỏ */
             border-radius: 50%;
             margin: 0 20px;
             display: flex;
@@ -242,10 +226,8 @@
         }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            /* Thay đổi font chữ */
-            font-size: 5rem;
-            /* Giảm size xíu do font này to hơn Great Vibes */
+            font-family: 'Playfair Display', serif; /* Thay đổi font chữ */
+            font-size: 5rem; /* Giảm size xíu do font này to hơn Great Vibes */
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 10px;
@@ -271,8 +253,7 @@
         /* === INFO SECTION BÊN DƯỚI ẢNH BÌA === */
         .info-section {
             padding: 60px 20px;
-            background-color: #ffffff;
-            /* Nền trắng */
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .info-container {
@@ -292,8 +273,7 @@
         }
 
         .info-box h3 {
-            font-family: 'Playfair Display', serif;
-            /* Font chữ tiêu đề */
+            font-family: 'Playfair Display', serif; /* Font chữ tiêu đề */
             font-size: 1.3rem;
             color: #333;
             margin-bottom: 15px;
@@ -310,8 +290,7 @@
         /* === WELCOME SECTION & GALLERY === */
         .welcome-section {
             padding: 80px 20px 100px 20px;
-            background-color: #ffffff;
-            /* Nền trắng */
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .welcome-container {
@@ -340,15 +319,13 @@
             top: 10px;
             bottom: 10px;
             width: 2px;
-            background-color: #ff5252;
-            /* Line đỏ */
+            background-color: #ff5252; /* Line đỏ */
         }
 
         .welcome-title {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            color: #ff5252;
-            /* Chữ đỏ */
+            color: #ff5252; /* Chữ đỏ */
             line-height: 1.2;
             font-weight: 700;
         }
@@ -372,8 +349,7 @@
 
         .btn-call {
             display: inline-block;
-            background-color: #ff5252;
-            /* Nút đỏ */
+            background-color: #ff5252; /* Nút đỏ */
             color: #ffffff;
             padding: 12px 40px;
             border-radius: 30px;
@@ -428,9 +404,8 @@
             width: 100%;
             padding: 100px 20px 120px 20px;
             text-align: center;
-            color: #ffffff;
-            background-color: #222;
-            /* Khôi phục nền tối cho section video để chữ trắng nổi bật */
+            color: #ffffff; 
+            background-color: #222; /* Khôi phục nền tối cho section video để chữ trắng nổi bật */
         }
 
         .gv-content {
@@ -525,8 +500,7 @@
         .menu-section {
             position: relative;
             padding: 100px 20px 120px 20px;
-            background-color: #ffffff;
-            /* Nền trắng */
+            background-color: #ffffff; /* Nền trắng */
         }
 
         .menu-container {
@@ -545,8 +519,7 @@
             width: 100%;
             height: auto;
             display: block;
-            border: 3px solid #ff5252;
-            /* Viền đỏ */
+            border: 3px solid #ff5252; /* Viền đỏ */
             padding: 3px;
             border-radius: 2px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -566,8 +539,7 @@
         .menu-title {
             font-family: 'Playfair Display', serif;
             font-size: 4.5rem;
-            color: #ff5252;
-            /* Chữ đỏ */
+            color: #ff5252; /* Chữ đỏ */
             font-weight: 700;
             margin-bottom: 5px;
         }
@@ -610,8 +582,7 @@
 
         .btn-red {
             display: inline-block;
-            background-color: #ff5252;
-            /* Nút đỏ */
+            background-color: #ff5252; /* Nút đỏ */
             color: #ffffff;
             padding: 12px 35px;
             border-radius: 30px;
@@ -662,8 +633,7 @@
         .red-script-title {
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            color: #ff5252;
-            /* Chữ đỏ */
+            color: #ff5252; /* Chữ đỏ */
             font-weight: 700;
             margin-bottom: 10px;
             line-height: 1;
@@ -699,8 +669,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: 1px solid #ff5252;
-            /* Viền đỏ */
+            border: 1px solid #ff5252; /* Viền đỏ */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -752,8 +721,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(220, 53, 69, 0.85);
-            /* Lớp phủ đỏ */
+            background-color: rgba(220, 53, 69, 0.85); /* Lớp phủ đỏ */
             z-index: 1;
         }
 
@@ -865,7 +833,6 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
-
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -890,16 +857,15 @@
         /* === CSS CHO 2 NÚT GHIM DƯỚI CÙNG === */
         .floating-action-buttons {
             position: fixed;
-            bottom: 80px;
-            /* tăng lên cho desktop */
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            flex-direction: row;
+            flex-direction: row; 
             justify-content: center;
             gap: 12px;
             z-index: 9999;
-            width: auto;
+            width: auto; 
             white-space: nowrap;
         }
 
@@ -910,15 +876,15 @@
             font-size: 14px;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 30px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
             font-family: 'Montserrat', Arial, sans-serif;
             transition: transform 0.2s ease, background-color 0.2s ease;
         }
 
         .fab-reserve {
-            background-color: #ffffff;
-            color: #ff5252;
+            background-color: #ffffff; 
+            color: #ff5252; 
             border: 1.5px solid #ff5252;
         }
 
@@ -928,8 +894,8 @@
         }
 
         .fab-order {
-            background-color: #ff5252;
-            color: #ffffff;
+            background-color: #ff5252; 
+            color: #ffffff; 
             border: 1.5px solid #ff5252;
         }
 
@@ -946,7 +912,6 @@
             .navbar {
                 padding: 15px 40px;
             }
-
             .logo {
                 left: 10%;
             }
@@ -956,42 +921,33 @@
             .hero-title {
                 font-size: 4.5rem;
             }
-
             .top-decoration {
                 width: 80%;
             }
-
             .welcome-container {
                 flex-direction: column;
             }
-
             .welcome-text {
                 margin-bottom: 40px;
             }
-
             .title-wrapper::before {
                 display: none;
             }
-
             .menu-container {
                 flex-direction: column;
                 gap: 40px;
             }
-
             .menu-image-col,
             .menu-text-col {
                 width: 100%;
                 max-width: 500px;
             }
-
             .kontakt-container {
                 flex-direction: column;
             }
-
             .kontakt-info {
                 max-width: 100%;
             }
-
             .kontakt-map iframe {
                 min-height: 350px;
             }
@@ -1004,17 +960,15 @@
                 padding: 15px 20px;
                 min-height: 75px;
             }
-
             .logo {
                 position: relative;
                 left: 0;
                 transform: none;
             }
-
             .logo img {
                 max-height: 50px;
             }
-
+            
             /* Hiện nút Hamburger */
             .hamburger {
                 display: flex;
@@ -1029,19 +983,17 @@
                 background-color: #ffffff;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-                /* Căn giữa tất cả các thẻ li */
+                align-items: center; /* Căn giữa tất cả các thẻ li */
                 padding: 25px 0 35px 0;
-                gap: 20px;
-                /* Tạo khoảng trống thoáng đãng */
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                gap: 20px; /* Tạo khoảng trống thoáng đãng */
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
                 border-top: 1px solid #f0f0f0;
-
+                
                 transform: translateY(-10%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s ease-in-out;
-                z-index: 999;
+                z-index: 999; 
             }
 
             /* Trạng thái hiển thị menu */
@@ -1054,15 +1006,13 @@
             .nav-links li {
                 width: 100%;
                 display: flex;
-                justify-content: center;
-                /* Căn giữa nội dung thẻ li */
+                justify-content: center; /* Căn giữa nội dung thẻ li */
             }
 
             .nav-links a {
                 display: block;
                 width: 100%;
-                text-align: center;
-                /* Căn giữa chữ */
+                text-align: center; /* Căn giữa chữ */
                 font-size: 16px;
                 padding: 10px;
             }
@@ -1073,10 +1023,8 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 85%;
-                /* Mở rộng nút cho dễ bấm */
-                max-width: 300px;
-                /* Giới hạn độ dài tối đa */
+                width: 85%; /* Mở rộng nút cho dễ bấm */
+                max-width: 300px; /* Giới hạn độ dài tối đa */
                 font-size: 15px !important;
                 padding: 12px 15px !important;
                 border-radius: 6px;
@@ -1086,85 +1034,79 @@
                 height: 70vh;
                 min-height: 400px;
             }
-
             .top-decoration {
                 width: 90%;
                 margin-bottom: 15px;
             }
-
             .circle-icon {
                 width: 30px;
                 height: 30px;
                 margin: 0 10px;
             }
-
             .circle-icon svg {
                 width: 14px;
                 height: 14px;
             }
-
             .hero-title {
                 font-size: 3.5rem;
                 line-height: 1.2;
                 margin-bottom: 10px;
             }
-
             .hero-subtitle {
                 font-size: 0.7rem;
                 letter-spacing: 4px;
                 margin-bottom: 20px;
             }
-
             .bottom-line {
                 width: 150px;
             }
-
             .info-container {
                 gap: 20px;
             }
-
             .info-box {
                 padding: 10px;
                 border-bottom: 1px dashed #ddd;
             }
-
             .info-box:last-child {
                 border-bottom: none;
             }
-
             .section-title,
             .red-script-title {
                 font-size: 3.5rem;
             }
-
             .gv-gallery {
                 justify-content: flex-start;
                 overflow-x: auto;
                 padding-bottom: 15px;
                 scroll-snap-type: x mandatory;
             }
-
             .gv-gallery img {
                 width: 80%;
                 flex-shrink: 0;
                 scroll-snap-align: center;
             }
-
             .gv-video-wrapper {
                 width: 95%;
             }
-
+            
             /* Responsive 2 nút ghim trên Mobile - xếp dọc siêu gọn */
-            .floating-action-buttons {
-                flex-direction: column;
-                width: 220px;
-                bottom: 15px;
-                gap: 8px;
+          .floating-action-buttons {
+                flex-direction: row !important; /* Xếp ngang chia đôi */
+                width: 100% !important; 
+                bottom: 15px !important; /* Hạ sát đáy 15px gọn gàng */
+                padding: 0 15px !important; /* Thêm khoảng cách 2 cạnh bên */
+                gap: 10px !important;
             }
-
-            .fab-btn {
-                padding: 8px 12px;
-                font-size: 13px;
+            .fab-btn { 
+                flex: 1 !important; /* Trải đều 50% mỗi nút */
+                padding: 12px 5px !important; 
+                font-size: 13px !important; 
+                white-space: normal !important; /* Cho phép chữ tự xuống dòng nếu dài */
+                line-height: 1.3 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 8px !important; /* Bo góc vuông vức hơn một chút trên đt */
             }
         }
 
@@ -1172,43 +1114,34 @@
             .welcome-title {
                 font-size: 3.5rem;
             }
-
             .welcome-gallery {
                 grid-template-columns: 1fr;
                 grid-template-rows: 300px 200px 200px;
             }
-
             .item-large {
                 grid-column: 1 / 2;
                 grid-row: 1 / 2;
             }
-
             .menu-title {
                 font-size: 3.5rem;
             }
-
             .menu-desc {
                 font-size: 0.85rem;
             }
-
             .menu-hours {
                 font-size: 0.8rem;
             }
-
             .dark-subtitle {
                 font-size: 0.75rem;
                 letter-spacing: 4px;
             }
-
             .hours-list p {
                 font-size: 1rem;
             }
-
             .footer-content {
                 flex-direction: column;
                 gap: 30px;
             }
-
             .footer-nav {
                 grid-template-columns: 1fr;
                 gap: 10px;
@@ -1223,7 +1156,7 @@
         <a href="#home" class="logo">
             <img src="logo.png" alt="Minh Hiếu Restaurant Logo">
         </a>
-
+        
         <!-- Nút Hamburger Menu (Chỉ hiện trên mobile) -->
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -1237,10 +1170,8 @@
             <li><a href="#kontakt">Kontakt</a></li>
             <li><a href="#galerie">Galerie</a></li>
             <li><a href="menu.html">Speisekarte</a></li>
-            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table
-                    Reservation</a></li>
-            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
-                    target="_blank" class="btn-order">See MENU & Order</a></li>
+            <li><a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="btn-reserve">Table Reservation</a></li>
+            <li><a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="btn-order">See MENU & Order</a></li>
         </ul>
     </nav>
 
@@ -1256,8 +1187,7 @@
                 <span class="line"></span>
                 <div class="circle-icon">
                     <svg fill="#ffffff" viewBox="0 0 24 24" width="18px" height="18px">
-                        <path
-                            d="M12,4.46C12,4.46 9.5,6.5 6,6.5C4.24,6.5 2.59,5.77 1.25,4.71C0.84,6.72 2.05,9.75 4,11.5C2.05,13.25 0.84,16.28 1.25,18.29C2.59,17.23 4.24,16.5 6,16.5C9.5,16.5 12,18.54 12,18.54C12,18.54 15.5,14 22.5,14L22.5,9C15.5,9 12,4.46 12,4.46M19,10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 19,13.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 19,10.5Z" />
+                        <path d="M12,4.46C12,4.46 9.5,6.5 6,6.5C4.24,6.5 2.59,5.77 1.25,4.71C0.84,6.72 2.05,9.75 4,11.5C2.05,13.25 0.84,16.28 1.25,18.29C2.59,17.23 4.24,16.5 6,16.5C9.5,16.5 12,18.54 12,18.54C12,18.54 15.5,14 22.5,14L22.5,9C15.5,9 12,4.46 12,4.46M19,10.5A1.5,1.5 0 0,1 20.5,12A1.5,1.5 0 0,1 19,13.5A1.5,1.5 0 0,1 17.5,12A1.5,1.5 0 0,1 19,10.5Z" />
                     </svg>
                 </div>
                 <span class="line"></span>
@@ -1519,10 +1449,8 @@
 
     <!-- KHỐI 2 NÚT GHIM DƯỚI CÙNG -->
     <div class="floating-action-buttons">
-        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table
-            Reservation</a>
-        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50"
-            target="_blank" class="fab-btn fab-order">See MENU & Order</a>
+        <a href="https://www.foodbooking.com/api/res/_ov8ml" target="_blank" class="fab-btn fab-reserve">Table Reservation</a>
+        <a href="https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=b42115dd-6d21-460d-bd49-002411af3756&dine_in=true&dine_in_subtype=custom&dine_in_custom_name=TWluaCBIaWV1IFJlc3RhdXJhbm50" target="_blank" class="fab-btn fab-order">See MENU & Order</a>
     </div>
 
     <script>
@@ -1570,5 +1498,4 @@
         });
     </script>
 </body>
-
 </html>
